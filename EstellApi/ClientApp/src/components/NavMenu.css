@@ -1,0 +1,21 @@
+﻿.nav{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+.nav a {
+    text-decoration: none;
+    color: black;
+    height: 30px;
+    padding: 5px 15px;
+}
+.nav a:focus:not(:first-child){
+    background: yellow;
+}
+.nav-logo{
+    height: 100px;
+    width: 100px;
+    background: url('./Logo.svg') no-repeat;
+    background-size: 90px;
+    margin-top: -7px;
+}
