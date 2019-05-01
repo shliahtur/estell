@@ -10,6 +10,7 @@ export default props => (
           <Link to={'/'} exact>Бренды</Link>
           <Link to={'/counter'}>Новости</Link>
           <Link to={'/fetchdata'}>Прайс-лист</Link>
+          <Link to={'/cart'}>Где купить?</Link>
           <Link to={'/cart'}>Контакты</Link>
     </nav>
   </div>
