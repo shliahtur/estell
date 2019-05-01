@@ -1,19 +1,17 @@
-﻿.nav-wrapper{
+﻿.nav{
     display: flex;
-    width: 100%;
-    justify-content: space-around;
+    justify-content: space-between;
     margin-top: 20px;
 }
-.nav-wrapper a {
+.nav a {
     text-decoration: none;
     color: black;
     height: 30px;
     padding: 5px 15px;
 }
-.nav-wrapper a:focus:not(:first-child){
+.nav a:focus:not(:first-child){
     background: yellow;
 }
-
 .nav-logo{
     height: 100px;
     width: 100px;

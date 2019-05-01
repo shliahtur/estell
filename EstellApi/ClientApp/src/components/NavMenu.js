@@ -5,18 +5,14 @@ import './NavMenu.css';
 
 export default props => (
 
-  <nav className="nav-wrapper">
-
-        <Link className="nav-logo" to={'/'}></Link>
-
-        <Link to={'/'} exact>На главную</Link>
-
-        <Link to={'/counter'}>Счетчик</Link>
-
-        <Link to={'/fetchdata'}>Погода</Link>
-
-        <Link to={'/cart'}>Корзина</Link>
-
-      </nav>
+  <div className="container">
+    <nav className="nav">
+          <Link className="nav-logo" to={'/'}></Link>
+          <Link to={'/'} exact>На главную</Link>
+          <Link to={'/counter'}>Счетчик</Link>
+          <Link to={'/fetchdata'}>Погода</Link>
+          <Link to={'/cart'}>Корзина</Link>
+    </nav>
+  </div>
 );
 
