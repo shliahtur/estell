@@ -3,7 +3,8 @@
     justify-content: space-between;
     margin-top: 20px;
 }
-.nav a {
+.nav_link {
+    margin: auto;
     text-decoration: none;
     color: black;
     height: 28px;
@@ -11,29 +12,64 @@
     font-weight: 600;
     font-size: 15px;
 }
-.nav a:focus:not(:first-child){
+.nav_link:hover{
+    text-decoration: none;
+}
+.nav_link:focus:not(:first-child){
     background: yellow;
 }
-.nav-logo{
-    height: 100px;
-    width: 100px;
+.nav_logo{
+    margin: auto;
+    height: 40px;
+    width: 95px;
     background: url('../img/Logo.svg') no-repeat;
     background-size: 90px;
-    margin-top: -7px;
 }
 .phone-icon{
+    height: 50px;
+    width: 50px;
+    background: url('../img/icons/phone-icon.svg') no-repeat;
+    background-size: 28px;
+    display: block;
 
 }
 .search-icon{
-
+    height: 50px;
+    width: 50px;
+    background: url('../img/icons/sort.svg') no-repeat;
+    background-size: 25px;
+    display: block;
+}
+.cart-wr{
+    position: relative;
+    top: -15px;
+    
 }
 .cart-icon{
     height: 50px;
     width: 50px;
     background: url('../img/icons/cart.svg') no-repeat;
-    background-size: 50px;
+    background-size: 44px;
+    display: block;
+
 }
-.nav-icons > * {
-    display: inline-block;
+.cart-quantity{
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 4px;
+    left: 20px;
+    font-size: 21px;
+    
+}
+.nav-icons{
     text-align: center;
+    margin: auto;
+}
+.nav-icons_item {
+    display: inline-block;
+
+    width: 30px;
+    height: 30px;
+    margin: 0 20px;
 }
