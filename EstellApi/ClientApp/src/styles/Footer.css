@@ -1,0 +1,13 @@
+.footer{
+    background: blue;
+    height: 300px;
+}
+.footer a{
+    text-decoration: none;
+    color: white;
+}
+
+.foo-contacts{
+    margin: 0 auto;
+    color: white;
+}
