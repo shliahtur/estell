@@ -371,11 +371,14 @@ textarea {
     font-weight: 400;
 }
 #root{
-    position: relative;
+    /* position: relative; */
     min-height: 100vh;
 }
 .container{
     max-width: 1440px;
     margin: 0 auto;
     padding: 0 50px;
-}  
+} 
+.content-wr{
+    padding-bottom: 150px; 
+} 

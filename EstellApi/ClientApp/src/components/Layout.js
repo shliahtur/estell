@@ -4,9 +4,9 @@ import Footer from './Footer';
 
 export default props => (
 
-  <React.Fragment>
+  <div class="content-wr">
     <NavMenu />
     {props.children}
     <Footer/>
-  </React.Fragment>
+  </div>
 );

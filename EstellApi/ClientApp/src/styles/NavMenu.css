@@ -33,3 +33,7 @@
     background: url('../img/icons/cart.svg') no-repeat;
     background-size: 50px;
 }
+.nav-icons > * {
+    display: inline-block;
+    text-align: center;
+}
