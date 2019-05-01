@@ -2,51 +2,45 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { actionCreators } from '../store/WeatherForecasts';
+import { actionCreators } from '../store/Products';
 
 class FetchData extends Component {
   componentWillMount() {
     // This method runs when the component is first added to the page
     const startDateIndex = parseInt(this.props.match.params.startDateIndex, 10) || 0;
-    this.props.requestWeatherForecasts(startDateIndex);
+    this.props.requestProducts(startDateIndex);
   }
 
   componentWillReceiveProps(nextProps) {
     // This method runs when incoming props (e.g., route params) change
     const startDateIndex = parseInt(nextProps.match.params.startDateIndex, 10) || 0;
-    this.props.requestWeatherForecasts(startDateIndex);
+    this.props.requestProducts(startDateIndex);
   }
 
   render() {
     return (
       <div>
-        <h1>Weather forecast</h1>
-        <p>This component demonstrates fetching data from the server and working with URL parameters.</p>
-        {renderForecastsTable(this.props)}
+        {renderProductsTable(this.props)}
         {renderPagination(this.props)}
       </div>
     );
   }
 }
 
-function renderForecastsTable(props) {
+function renderProductsTable(props) {
   return (
     <table className='table'>
       <thead>
         <tr>
-          <th>Date</th>
-          <th>Temp. (C)</th>
-          <th>Temp. (F)</th>
-          <th>Summary</th>
+          <th>Name</th>
+          <th>Price</th>
         </tr>
       </thead>
       <tbody>
-        {props.forecasts.map(forecast =>
-          <tr key={forecast.Name}>
-            <td>{forecast.Price}</td>
-            <td>{forecast.temperatureC}</td>
-            <td>{forecast.temperatureF}</td>
-            <td>{forecast.summary}</td>
+        {props.products.map(product =>
+          <tr key={product.name}>
+            <td>{product.price}</td>
+          
           </tr>
         )}
       </tbody>
@@ -66,6 +60,6 @@ function renderPagination(props) {
 }
 
 export default connect(
-  state => state.weatherForecasts,
+  state => state.products,
   dispatch => bindActionCreators(actionCreators, dispatch)
 )(FetchData);
