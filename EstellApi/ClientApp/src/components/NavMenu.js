@@ -12,20 +12,6 @@ export default props => (
       <Link to={'/fetchdata'}>Прайс-лист</Link>
       <Link to={'/cart'}>Где купить?</Link>
       <Link to={'/cart'}>Контакты</Link>
-<<<<<<< HEAD
-
-      <div className="nav-icons">
-        <a className="phone-icon" href="tel:0667469590"></a>
-        <div className="search-icon"></div>
-        <div className="cart-wr">
-          <Link className="cart-icon" to={'/cart'}></Link>
-          <span className ="cart-quantity">4</span>
-        </div>
-        
-      </div>
-    </nav>
-
-=======
    
       <div className="nav-icons">
       <a className="phone-icon" href="tel:0667469590"></a>
@@ -33,7 +19,6 @@ export default props => (
       <Link className="cart-icon" to={'/cart'}></Link>
     </div>
     </nav>
->>>>>>> bb8a790999274962cf2126190db6d54cdd4a5067
   </div>
 );
 
