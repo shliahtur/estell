@@ -15,7 +15,7 @@
 .nav-logo{
     height: 100px;
     width: 100px;
-    background: url('./Logo.svg') no-repeat;
+    background: url('../img/Logo.svg') no-repeat;
     background-size: 90px;
     margin-top: -7px;
 }
