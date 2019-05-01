@@ -36,7 +36,7 @@
 .search-icon{
     height: 50px;
     width: 50px;
-    background: url('../img/icons/sort.svg') no-repeat;
+    background: url('../img/icons/search_icon.svg') no-repeat;
     background-size: 25px;
     display: block;
 }
