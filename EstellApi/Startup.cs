@@ -31,7 +31,11 @@ namespace EstellApi
                 configuration.RootPath = "ClientApp/build";
             });
             services.AddDbContext<EFDbContext>(options =>
+<<<<<<< HEAD
            options.UseSqlServer($"Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog={nameof(EFDbContext)};Integrated Security=True"));
+=======
+           options.UseSqlServer($"Data Source=localhost;Initial Catalog={nameof(EFDbContext)};Integrated Security=True"));
+>>>>>>> 1668803326731d84f32d74f3cb4647641d29d40c
 
             services.AddScoped<IRepository, Repository>();
         }
