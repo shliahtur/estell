@@ -11,7 +11,7 @@ export default props => (
           <Link to={'/'} exact>Бренды</Link>
           <Link to={'/counter'}>Новости</Link>
           <Link to={'/fetchdata'}>Погода</Link>
-          <Link to={'/cart'}>Корзина</Link>
+          <Link to={'/cart'}>Маша лох</Link>
     </nav>
   </div>
 );
