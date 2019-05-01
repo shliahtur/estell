@@ -1,0 +1,23 @@
+﻿.nav-wrapper{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+.nav-wrapper a {
+    text-decoration: none;
+    color: black;
+    height: 30px;
+    padding: 5px 15px;
+}
+.nav-wrapper a:focus:not(:first-child){
+    background: yellow;
+}
+
+.nav-logo{
+    height: 100px;
+    width: 100px;
+    background: url('./Logo.svg') no-repeat;
+    background-size: 90px;
+    margin-top: -7px;
+}
