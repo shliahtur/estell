@@ -11,7 +11,7 @@ export const actionCreators = {
 
     dispatch({ type: requestProductsType, startDateIndex });
 
-    const url = `http://localhost:55302/api/SampleData/get`;
+    const url = `http://localhost:55302/api/Products/Get?startDateIndex=${startDateIndex}`;
     const response = await fetch(url);
     const products = await response.json();
 

@@ -9,18 +9,18 @@ using Microsoft.AspNetCore.Mvc;
 namespace EstellApi.Controllers
 {
     [Route("api/[controller]")]
-    public class SampleDataController : Controller
+    public class ProductsController : Controller
     {
         private IRepository _repo;
 
-        public SampleDataController(IRepository repo)
+        public ProductsController(IRepository repo)
         {
             _repo = repo;
         }
 
 
         [HttpGet("[action]")]
-        public ActionResult<IEnumerable<Product>> Get()
+        public ActionResult<IEnumerable<Product>> Get(int startDateIndex)
         {
             return _repo.GetProducts();
         }
