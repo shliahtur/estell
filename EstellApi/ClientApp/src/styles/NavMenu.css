@@ -6,8 +6,10 @@
 .nav a {
     text-decoration: none;
     color: black;
-    height: 30px;
+    height: 28px;
     padding: 5px 15px;
+    font-weight: 600;
+    font-size: 15px;
 }
 .nav a:focus:not(:first-child){
     background: yellow;
@@ -18,4 +20,16 @@
     background: url('../img/Logo.svg') no-repeat;
     background-size: 90px;
     margin-top: -7px;
+}
+.phone-icon{
+
+}
+.search-icon{
+
+}
+.cart-icon{
+    height: 50px;
+    width: 50px;
+    background: url('../img/icons/cart.svg') no-repeat;
+    background-size: 50px;
 }
