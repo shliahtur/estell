@@ -10,7 +10,7 @@ export default props => (
           <Link className="nav-logo" to={'/'}></Link>
           <Link to={'/'} exact>Бренды</Link>
           <Link to={'/counter'}>Новости</Link>
-          <Link to={'/fetchdata'}>Погода</Link>
+          <Link to={'/fetchdata'}>где купить?</Link>
           <Link to={'/cart'}>Корзина</Link>
     </nav>
   </div>
