@@ -14,12 +14,13 @@ class ProductList extends Component {
         <div className="products-container">
           {products.map(product => {
             return (
-                <div className="product-item" key={ product.id }>   
-                <img src={product.imagePath} height={"200px"} alt={product.name} />        
-                <h4><Link to={`/products/${product.id}`}>{product.name}</Link></h4>
-                <p>{product.price}</p>
-                <p>{product.vendorCode}</p>
-                <p>{product.age}</p>
+              <div className="product-item" key={ product.id }>   
+                <img className="product-item_img" src={product.imagePath} height={"200px"} alt={product.name} />        
+                <h4 className="produc-item_name"><Link to={`/products/${product.id}`}>{product.name}</Link></h4>
+                <p className="product-item_description">what a great toy</p>
+                <p className="product-item_price">{product.price}</p>
+                <p className="product-item_article">{product.vendorCode}</p>
+                <span className="product-item_age">{product.age}</span>
               </div>
               
             );
