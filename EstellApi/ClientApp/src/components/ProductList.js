@@ -16,7 +16,7 @@ class ProductList extends Component {
             return (
               <div className="product-item" key={ product.id }>   
                 <img className="product-item_img" src={product.imagePath} height={"200px"} alt={product.name} />        
-                <h4 className="produc-item_name"><Link to={`/products/${product.id}`}>{product.name}</Link></h4>
+                <h4>< Link className="produc-item_name" to={`/products/${product.id}`}>{product.name}</Link></h4>
                 <p className="product-item_description">what a great toy</p>
                 <p className="product-item_price">{product.price}</p>
                 <p className="product-item_article">{product.vendorCode}</p>

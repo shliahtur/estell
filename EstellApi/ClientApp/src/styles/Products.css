@@ -15,7 +15,9 @@
     margin-bottom: 10px;
     display: block;
 }
-.product-item_name {
+.produc-item_name{
+    font: 600 18px "muller";
     color: black;
-    font: 
+    text-decoration: none;
 }
+.
