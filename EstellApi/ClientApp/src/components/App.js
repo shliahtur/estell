@@ -1,4 +1,5 @@
 ﻿import React, { Component } from 'react';
+import Home from './Home';
 import ProductAdd from './ProductAdd';
 import ProductList from './ProductList';
 import ProductInfo from './ProductInfo';
@@ -26,7 +27,7 @@ class App extends Component {
 
 const Main = () => (
   <Switch>
-    <Route exact path="/" component={ProductList} />
+    <Route exact path="/" component={Home} />
     <Route exact path="/products" component={ProductList} />
     <Route exact path="/products/new" component={ProductAdd} />
     <Route exact path="/products/:id" component={ProductInfo} />

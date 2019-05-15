@@ -21,7 +21,6 @@ class ProductList extends Component {
                 <p>{product.vendorCode}</p>
                 <p>{product.age}</p>
               </div>
-              
             );
           })}
         </div>
