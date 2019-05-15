@@ -4,25 +4,24 @@ import { Link } from 'react-router-dom';
 import Preloader from './Preloader';
 import {products} from '../data/tempProducts';
 
+import "../styles/Products.css"
+
 class ProductList extends Component {
 
   render() {
     if(products.length) {
       return (
-        <div>
-        
+        <div className="products-container">
           {products.map(product => {
             return (
-              <div key={ product.id }>
-                <hr/>    
-                  
+                <div className="product-item" key={ product.id }>   
                 <img src={product.imagePath} height={"200px"} alt={product.name} />        
-                <h4><Link to={`/products/${product.id}`}>{product.id}: {product.name}</Link></h4>
+                <h4><Link to={`/products/${product.id}`}>{product.name}</Link></h4>
                 <p>{product.price}</p>
                 <p>{product.vendorCode}</p>
                 <p>{product.age}</p>
-               
               </div>
+              
             );
           })}
         </div>
