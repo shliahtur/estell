@@ -11,8 +11,7 @@ export default props => (
                 Estell (c) 2019
         </div>
             <br></br>
-            <Link to={'/'} exact>Бренды</Link>
-            <Link to={'/counter'}>Новости</Link>
+            <Link to={'/'}>Бренды</Link>
             <Link to={'/fetchdata'}>Прайс-лист</Link>
             <Link to={'/cart'}>Контакты</Link>
         </div>

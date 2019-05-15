@@ -72,7 +72,7 @@ namespace EstellApi.DAL
 
             if (product.ImgName != null)
             {
-                string path = _appEnvironment.WebRootPath + "/Files/" + product.ImgName;
+                string path = _appEnvironment.WebRootPath + "/Images/" + product.ImgName;
                 if (File.Exists(path))
                 {
                     File.Delete(path);

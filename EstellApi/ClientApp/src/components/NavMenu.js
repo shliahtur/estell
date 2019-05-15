@@ -11,7 +11,7 @@ export default props => (
       <Link className="nav_link" to={'/fetchdata'}>Прайс-лист</Link>
       <Link className="nav_link" to={'/cart'}>Где купить?</Link>
       <Link className="nav_link" to={'/cart'}>Контакты</Link>
-      <Link className="nav_link" to={'/'} exact>Бренды</Link>
+      <Link className="nav_link" to={'/'}>Бренды</Link>
 
       <div className="nav-icons">
         <a className="nav-icons_item phone-icon" href="tel:0667469590"></a>

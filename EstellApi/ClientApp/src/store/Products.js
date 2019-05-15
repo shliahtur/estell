@@ -11,7 +11,7 @@ export const actionCreators = {
 
     dispatch({ type: requestProductsType, startDateIndex });
 
-    const url = `http://localhost:55302/api/Products/Get?startDateIndex=${startDateIndex}`;
+    const url = `/api/Products/Get?startDateIndex=${startDateIndex}`;
     const response = await fetch(url);
     const products = await response.json();
 
@@ -34,7 +34,7 @@ export const reducer = (state, action) => {
     return {
       ...state,
       startDateIndex: action.startDateIndex,
-      forecasts: action.products,
+      products: action.products,
       isLoading: false
     };
   }

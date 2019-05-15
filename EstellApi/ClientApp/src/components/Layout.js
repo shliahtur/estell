@@ -4,7 +4,7 @@ import Footer from './Footer';
 
 export default props => (
 
-  <div class="content-wr">
+  <div className="content-wr">
     <NavMenu />
     {props.children}
     <Footer/>
