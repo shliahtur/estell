@@ -5,7 +5,7 @@
 }
 
 .product-item {
-    border: 1px solid #b3b3b3;
+    border: 1px solid #f1f1f1;
     padding: 25px;
     max-width: 250px;
     min-width: 175px;
@@ -46,4 +46,32 @@
 
 .product-item_age__yellow {
     background: #fff852;
+}
+
+.product-item_price-line {
+    width: 100%;
+    height: 30px;
+    margin: 7px auto;
+}
+
+.product-item_price {
+    display: inline-block;
+    background: #FFE3F9;
+    max-width: 35%;
+    width: 100%;
+    text-align: center;
+    font: 600 18px "muller";
+    padding: 5px;
+
+}
+
+.product-item_cart {
+    background: url("../img/icons/item_cart.svg") no-repeat;
+    float: right;
+    width: 50%;
+    height: 50px;
+    border: none;
+    background-size: 26px;
+    margin-top: 3px;
+
 }
