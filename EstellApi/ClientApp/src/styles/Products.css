@@ -1,0 +1,48 @@
+.products-container {
+    display: flex;
+    justify-content: space-around;
+    margin: 50px;
+}
+
+.product-item {
+    border: 1px solid #b3b3b3;
+    padding: 25px;
+    max-width: 250px;
+    min-width: 175px;
+    width: 100%;
+    position: relative;
+}
+
+.product-item_img {
+    margin: 0 auto;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.product-item_name {
+    font: 600 18px "muller";
+    color: black;
+    text-decoration: none;
+}
+
+.product-item_description {
+    color: #acacac;
+    font: 400 13px "muller";
+    margin: 8px auto;
+}
+
+.product-item_age {
+    width: 25px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    font-weight: 600;
+    font-size: 18px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.product-item_age__yellow {
+    background: red;
+}

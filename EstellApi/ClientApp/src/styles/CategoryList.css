@@ -1,0 +1,45 @@
+.category-container{
+margin-top: 50px;
+padding: 0 60px;
+}
+
+
+.category-line{
+    display: flex;
+    justify-content: space-around;
+}
+
+.category-item {
+    height: 200px;
+    width: 350px;
+    border-radius: 15px;
+    margin-bottom: 15px;
+}
+
+.bubbleezz{
+    background: url("../img/Categories/bubbleezz.jpg") no-repeat
+}
+.fluffables{
+    background: url("../img/Categories/fluffubles.jpg") no-repeat
+}
+ .fuzzeez{
+    background: url("../img/Categories/fuzzeez.jpg") no-repeat
+ }
+ .glitter-petz{
+    background: url("../img/Categories/glitter-petz.jpg") no-repeat
+ }
+ .molecules{
+    background: url("../img/Categories/molecules.jpg") no-repeat
+ }
+.plush-craft{
+
+}
+ .squishies{
+
+ }
+ .sticky-mosaics{
+
+ }
+.stick-n-style{
+
+}

@@ -1,0 +1,16 @@
+.footer{
+    background: blue;
+    position: absolute;
+    padding: 50px;
+    width: 100%;
+   
+}
+.footer a{
+    text-decoration: none;
+    color: white;
+}
+
+.foo-contacts{
+    margin: 0 auto;
+    color: white;
+}
