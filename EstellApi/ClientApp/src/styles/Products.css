@@ -32,17 +32,18 @@
 }
 
 .product-item_age {
-    width: 38px;
-    height: 42px;
+    width: 35px;
+    height: 26px;
     text-align: center;
-    line-height: 43px;
+    line-height: 30px;
     font-weight: 600;
     font-size: 18px;
     position: absolute;
     top: 20px;
     right: 20px;
-    padding: 0 1px;
+    padding: 0 2px;
 }
 
 .product-item_age__yellow {
     background: #fff852;
+}
