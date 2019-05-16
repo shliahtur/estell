@@ -37,12 +37,12 @@
     text-align: center;
     line-height: 30px;
     font-weight: 600;
-    font-size: 18px;
+    font-size: 40px;
     position: absolute;
     top: 20px;
     right: 20px;
 }
 
 .product-item_age__yellow {
-    background: greenyellow;
+    background: red;
 }
