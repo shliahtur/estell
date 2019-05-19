@@ -3,7 +3,7 @@ import history from '../history';
 import { showLoading, hideLoading } from 'react-redux-loading-bar'
 
 export const RECEIVE_PRODUCTS = 'GET_PRODUCTS';
-export const RECEIVE_PRODUCTS_BY_CATEGORY_ID = 'RECEIVE_PRODUCTS_BY_CATEGORY_ID';
+export const RECEIVE_PRODUCTS_BY_CATEGORY = 'RECEIVE_PRODUCTS_BY_CATEGORY';
 export const ADD_PRODUCT = 'ADD_PRODUCT';
 export const RECEIVE_PRODUCT = 'RECEIVE_PRODUCT';
 export const REMOVE_PRODUCT = 'REMOVE_PRODUCT';
@@ -25,11 +25,11 @@ export const getProducts = () => {
   };
 };
 
-export const getProductsByCategoryId = (categoryId) => {
+export const getProductsByCategory = (category) => {
   return (dispatch) => {
-    return axios.get(`${apiUrl}/GetProductsByCategoryId/${categoryId}`)
+    return axios.get(`${apiUrl}/GetProductsByCategory/${category}`)
       .then(response => {
-        dispatch({ type: RECEIVE_PRODUCTS_BY_CATEGORY_ID, products: response.data })
+        dispatch({ type: RECEIVE_PRODUCTS_BY_CATEGORY, products: response.data })
       })
       .catch(error => { throw (error); });
   };

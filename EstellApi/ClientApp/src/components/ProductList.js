@@ -2,10 +2,14 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Preloader from './Preloader';
+import { getProductsByCategory } from '../actions';
 
 import "../styles/Products.css"
 
 class ProductList extends Component {
+  componentDidMount() {
+    this.props.getProductsByCategory(this.props.match.params.catname);
+  }
 
   render() {
     if(this.props.products.length) {
@@ -36,5 +40,6 @@ class ProductList extends Component {
 
 
 const mapStateToProps = (state) => ({ products: state.products });
+const mapDispatchToProps = { getProductsByCategory };
 
-export default connect(mapStateToProps)(ProductList);
+export default connect(mapStateToProps, mapDispatchToProps)(ProductList);

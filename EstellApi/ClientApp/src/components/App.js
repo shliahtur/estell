@@ -23,7 +23,7 @@ class App extends Component {
           <NavMenu />
           <Main />
           <Footer />
-          </div>
+        </div>
       </Router>
     );
   }
@@ -32,7 +32,7 @@ class App extends Component {
 const Main = () => (
   <Switch>
     <Route exact path="/" component={Home} />
-    <Route exact path="/products" component={ProductList} />
+    <Route exact path="/:catname" component={ProductList} />
     <Route exact path="/products/new" component={ProductAdd} />
     <Route exact path="/products/:id" component={ProductInfo} />
     <Route exact path="/products/:id/edit" component={ProductEdit} />
