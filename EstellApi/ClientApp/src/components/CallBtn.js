@@ -14,13 +14,13 @@ export default class CallBtn extends Component {
       }
     
       handleSubmit = () => {
-        console.log('Submit function!');
         this.setState({ isOpen: false });
       }
     
-      handleCancel = () => {
-        console.log('Cancel function!');
-        this.setState({ isOpen: false });
+      handleCancel = (e) => {
+          if(e.target.className == 'modalOverlay' || e.target.className == 'close-btn'){
+            this.setState({ isOpen: false });
+          }
       }
 
   render() {
@@ -33,7 +33,10 @@ export default class CallBtn extends Component {
           onCancel={this.handleCancel}
           onSubmit={this.handleSubmit}
         >
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a</p>
+            <div className="modal-label">Имя</div>
+            <input type='text'/>
+            <div className="modal-label">Телефон</div>
+            <input type='text'/>
         </Modal>
 
       </Fragment>

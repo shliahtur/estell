@@ -22,7 +22,7 @@ const Modal = ({
                 {children}
               </div>
               <div className="modalFooter">
-                <button onClick={onSubmit}>Submit</button>
+                <button onClick={onSubmit}>Отправить</button>
               </div>
             </div>
           </div>
