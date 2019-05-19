@@ -25,11 +25,11 @@ namespace EstellApi.Controllers
             return _repo.GetProducts();
         }
 
-        [HttpGet("[action]/{id}")]
-        public ActionResult<IEnumerable<Product>> GetProductsByCategoryId(int id)
+        [HttpGet("[action]/{cat}")]
+        public ActionResult<IEnumerable<Product>> GetProductsByCategory(string cat)
         {
-            return _repo.GetProductsByCategoryId(id);
+            return _repo.GetProductsByCategory(cat);
         }
 
-    }
+    } 
 }

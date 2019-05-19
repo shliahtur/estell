@@ -7,11 +7,11 @@ import "../styles/CategoryList.css"
 class CategoryList extends Component {
 
     render() {
-
+   const category = "bubbleezz";
         return (
             <div className="category-container">
                 <div className="category-line">
-                    <Link to={`products`}>
+                    <Link to={category}>
                         <div className="category-item bubbleezz"></div>
                     </Link>
                     <Link to={`products`}>
@@ -33,11 +33,9 @@ class CategoryList extends Component {
                     </Link>
                 </div>
             </div>
-
         )
     }
 }
-
 
 // const mapStateToProps = (state) => ({products: state.products });
 

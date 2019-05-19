@@ -23,11 +23,16 @@ class App extends Component {
           <CallBtn/>
           <NavMenu />
           <Main />
+<<<<<<< HEAD
           </div>
           <Footer />
         </div>
 
           
+=======
+          <Footer />
+        </div>
+>>>>>>> ee20d83be4949d409385df97ae186d6944d75b75
       </Router>
     );
   }
@@ -36,7 +41,7 @@ class App extends Component {
 const Main = () => (
   <Switch>
     <Route exact path="/" component={Home} />
-    <Route exact path="/products" component={ProductList} />
+    <Route exact path="/:catname" component={ProductList} />
     <Route exact path="/products/new" component={ProductAdd} />
     <Route exact path="/products/:id" component={ProductInfo} />
     <Route exact path="/products/:id/edit" component={ProductEdit} />
