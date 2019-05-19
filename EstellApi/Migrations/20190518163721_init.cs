@@ -9,7 +9,7 @@ namespace EstellApi.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "ParentCategories",
+                name: "Categories",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -19,28 +19,7 @@ namespace EstellApi.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ParentCategories", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Categories",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Name = table.Column<string>(nullable: true),
-                    UrlSeo = table.Column<string>(nullable: true),
-                    ParentCategoryId = table.Column<int>(nullable: false)
-                },
-                constraints: table =>
-                {
                     table.PrimaryKey("PK_Categories", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Categories_ParentCategories_ParentCategoryId",
-                        column: x => x.ParentCategoryId,
-                        principalTable: "ParentCategories",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -74,11 +53,6 @@ namespace EstellApi.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Categories_ParentCategoryId",
-                table: "Categories",
-                column: "ParentCategoryId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Products_CategoryId",
                 table: "Products",
                 column: "CategoryId");
@@ -91,9 +65,6 @@ namespace EstellApi.Migrations
 
             migrationBuilder.DropTable(
                 name: "Categories");
-
-            migrationBuilder.DropTable(
-                name: "ParentCategories");
         }
     }
 }

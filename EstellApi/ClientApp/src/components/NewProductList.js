@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import Slider from "react-slick";
+import "../styles/Products.css";
 import Preloader from './Preloader';
 
-import "../styles/Products.css"
 
-class ProductList extends Component {
+class NewProductList extends Component {
 
   render() {
     if(this.props.products.length) {
@@ -34,7 +35,7 @@ class ProductList extends Component {
   }
 }
 
-
 const mapStateToProps = (state) => ({ products: state.products });
 
-export default connect(mapStateToProps)(ProductList);
+export default connect(mapStateToProps)(NewProductList);
+

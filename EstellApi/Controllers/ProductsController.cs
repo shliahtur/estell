@@ -20,9 +20,15 @@ namespace EstellApi.Controllers
 
 
         [HttpGet("[action]")]
-        public ActionResult<IEnumerable<Product>> Get(int startDateIndex)
+        public ActionResult<IEnumerable<Product>> GetProducts()
         {
             return _repo.GetProducts();
+        }
+
+        [HttpGet("[action]/{id}")]
+        public ActionResult<IEnumerable<Product>> GetProductsByCategoryId(int id)
+        {
+            return _repo.GetProductsByCategoryId(id);
         }
 
     }

@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EstellApi.Migrations
 {
     [DbContext(typeof(EFDbContext))]
-    [Migration("20190429180515_init")]
+    [Migration("20190518163721_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -29,30 +29,11 @@ namespace EstellApi.Migrations
 
                     b.Property<string>("Name");
 
-                    b.Property<int>("ParentCategoryId");
-
                     b.Property<string>("UrlSeo");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("ParentCategoryId");
 
                     b.ToTable("Categories");
-                });
-
-            modelBuilder.Entity("EstellApi.Model.ParentCategory", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Name");
-
-                    b.Property<string>("UrlSeo");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("ParentCategories");
                 });
 
             modelBuilder.Entity("EstellApi.Model.Product", b =>
@@ -90,14 +71,6 @@ namespace EstellApi.Migrations
                     b.HasIndex("CategoryId");
 
                     b.ToTable("Products");
-                });
-
-            modelBuilder.Entity("EstellApi.Model.Category", b =>
-                {
-                    b.HasOne("EstellApi.Model.ParentCategory", "ParentCategory")
-                        .WithMany("Categories")
-                        .HasForeignKey("ParentCategoryId")
-                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("EstellApi.Model.Product", b =>

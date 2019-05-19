@@ -5,8 +5,10 @@ import ProductList from './ProductList';
 import ProductInfo from './ProductInfo';
 import ProductEdit from './ProductEdit';
 import NavMenu from './NavMenu';
-import {Router, Route, NavLink, Switch} from 'react-router-dom'
+import {Router, Route, Switch} from 'react-router-dom'
 import history from '../history';
+import LoadingBar from './LoadingBar';
+import CallBtn from './CallBtn';
 
 import '../styles/App.css'
 import Footer from './Footer';
@@ -16,6 +18,8 @@ class App extends Component {
     return (
       <Router history={history}>
         <div className="content-wr">
+          <LoadingBar/>
+          <CallBtn/>
           <NavMenu />
           <Main />
           <Footer />

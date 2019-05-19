@@ -2,7 +2,7 @@
     background: blue;
     position: absolute;
     padding: 50px;
-    width: 100%;
+    width: 100% !important;
    
 }
 .footer a{

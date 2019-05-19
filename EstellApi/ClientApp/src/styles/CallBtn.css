@@ -1,0 +1,15 @@
+.call-btn{
+    cursor: pointer;
+    position: fixed;
+    right: 5%;
+    bottom: 5%;
+    height: 60px;
+    z-index: 100;
+    background-color: #9352ff;
+    border-radius: 100%;
+    padding: 20px;
+    box-shadow: 0px 4px 15px #6b41b185;
+}
+.call-btn:hover{
+    background-color: #733ec9
+}

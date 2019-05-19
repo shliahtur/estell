@@ -25,6 +25,11 @@ namespace EstellApi.DAL
             return _context.Products.ToList();
         }
 
+        public List<Product> GetProductsByCategoryId(int id)
+        {
+            return _context.Products.Where(x => x.CategoryId == id).ToList();
+        }
+
         public Product GetProductById(int id)
         {
             return _context.Products.Find(id);

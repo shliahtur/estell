@@ -15,7 +15,6 @@ namespace EstellApi.Context
 
         public DbSet<Product> Products { get; set; }
         public DbSet<Category> Categories { get; set; }
-        public DbSet<ParentCategory> ParentCategories { get; set; }
 
     }
 }

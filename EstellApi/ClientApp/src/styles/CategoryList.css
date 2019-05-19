@@ -1,10 +1,10 @@
-.category-container{
-margin-top: 50px;
-padding: 0 60px;
+.category-container {
+    padding: 0 60px;
+    max-width: 1200px;
+    margin: 50px auto 0 auto;
 }
 
-
-.category-line{
+.category-line {
     display: flex;
     justify-content: space-around;
 }
@@ -14,32 +14,37 @@ padding: 0 60px;
     width: 350px;
     border-radius: 15px;
     margin-bottom: 15px;
+    transition: 200ms;
 }
 
-.bubbleezz{
+.category-item:hover {
+    box-shadow: 0 0 13px 0px #b7b7b7;
+}
+
+.bubbleezz {
     background: url("../img/Categories/bubbleezz.jpg") no-repeat
 }
-.fluffables{
+
+.fluffables {
     background: url("../img/Categories/fluffubles.jpg") no-repeat
 }
- .fuzzeez{
+
+.fuzzeez {
     background: url("../img/Categories/fuzzeez.jpg") no-repeat
- }
- .glitter-petz{
+}
+
+.glitter-petz {
     background: url("../img/Categories/glitter-petz.jpg") no-repeat
- }
- .molecules{
+}
+
+.molecules {
     background: url("../img/Categories/molecules.jpg") no-repeat
- }
-.plush-craft{
-
 }
- .squishies{
 
- }
- .sticky-mosaics{
+.plush-craft {}
 
- }
-.stick-n-style{
+.squishies {}
 
-}
+.sticky-mosaics {}
+
+.stick-n-style {}
