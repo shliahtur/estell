@@ -23,16 +23,11 @@ class App extends Component {
           <CallBtn/>
           <NavMenu />
           <Main />
-<<<<<<< HEAD
           </div>
           <Footer />
         </div>
 
           
-=======
-          <Footer />
-        </div>
->>>>>>> ee20d83be4949d409385df97ae186d6944d75b75
       </Router>
     );
   }
