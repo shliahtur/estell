@@ -17,13 +17,17 @@ class App extends Component {
   render() {
     return (
       <Router history={history}>
-        <div className="content-wr">
+        <div className="wrapper">
+          <div className="content-wr">
           <LoadingBar/>
           <CallBtn/>
           <NavMenu />
           <Main />
-          <Footer />
           </div>
+          <Footer />
+        </div>
+
+          
       </Router>
     );
   }

@@ -7,14 +7,19 @@ export default props => (
 
     <div className="footer">
         <div className="container">
-            <div className="foo-contacts">
-                Estell (c) 2019
-        </div>
+             
+           
+            <div className="footer-nav">
+                <Link to={'/'}>Бренды</Link>
+                <Link to={'/fetchdata'}>Прайс-лист</Link>
+                <Link to={'/cart'}>Контакты</Link>
+                <Link to={'/products'}>Каталог</Link>
+            </div>
             <br></br>
-            <Link to={'/'}>Бренды</Link>
-            <Link to={'/fetchdata'}>Прайс-лист</Link>
-            <Link to={'/cart'}>Контакты</Link>
-            <Link to={'/products'}>Каталог</Link>
+            <div className="foo-rights">
+                Estell (c) 2019
+            </div>
+            
         </div>
 
     </div>

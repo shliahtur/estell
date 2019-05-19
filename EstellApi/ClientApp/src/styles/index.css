@@ -319,7 +319,7 @@ table {
     border-spacing: 0;
 }
 
-html,
+/* html, */
 button,
 input,
 select,
@@ -367,14 +367,19 @@ textarea {
     font-weight: 400;
 }
 #root{
-    /* position: relative; */
-    min-height: 100vh;
+    height: 100vh;
+}
+.wrapper{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 .container{
+    
     max-width: 1440px;
     margin: 0 auto;
     padding: 0 50px;
 } 
 .content-wr{
-    padding-bottom: 150px; 
+    flex: 1 0 auto; 
 } 

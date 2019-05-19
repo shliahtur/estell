@@ -13,3 +13,47 @@
 .call-btn:hover{
     background-color: #733ec9
 }
+.modal-label{
+    padding: 10px 10px 15px 10px;
+    font-weight: 600;
+    font-size: 16px;
+}
+.modal-input{
+    min-width: 320px;
+    min-height: 30px;
+    border: 1px solid #b2b2b2;
+    padding: 5px 20px;
+    color: #656565;
+    font: 400 16px "muller";
+}
+.modal-input_name{
+    margin-bottom: 30px;
+}
+.modalTitle{
+    font-size: 20px;
+    margin-top: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.modalWindow{
+    padding: 45px;
+    min-width: 300px;
+    max-width: 440px;
+    width: 100%;
+    min-height: 300px;
+    max-height: 500px;
+}
+.modalFooter button {
+    margin-top: 30px;
+    width:150px;
+    height: 50px;
+    font-weight: 700;
+    font-size: 16px;
+    text-align: center;
+    background: #fff852;
+    padding: 5px;
+    border: none;
+}
+.modalFooter button:hover{
+    box-shadow: 0 0 13px 0px #b7b7b7;
+}

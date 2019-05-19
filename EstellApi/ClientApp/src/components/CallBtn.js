@@ -27,16 +27,16 @@ export default class CallBtn extends Component {
     return (
         <Fragment>
         <img className="call-btn" src={phoneIcon} onClick={this.openModal}/>
-        <Modal
-          title="Test Dialog window"
+        <Modal className="modal-form"
+          title="Заполните форму и мы Вам перезвоним"
           isOpen={this.state.isOpen}
           onCancel={this.handleCancel}
           onSubmit={this.handleSubmit}
         >
-            <div className="modal-label">Имя</div>
-            <input type='text'/>
-            <div className="modal-label">Телефон</div>
-            <input type='text'/>
+            <div className="modal-label modal-label_name">Имя</div>
+            <input className="modal-input modal-input_name" type='text'/>
+            <div className="modal-label modal-label_phone">Телефон</div>
+            <input className=" modal-input modal-input_phone" type='text'/>
         </Modal>
 
       </Fragment>
