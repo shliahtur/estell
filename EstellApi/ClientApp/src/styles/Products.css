@@ -1,34 +1,39 @@
-.products-container{
+.products-container {
     display: flex;
     justify-content: space-around;
     margin: 50px;
 }
-.product-item{
-    border: 1px solid #b3b3b3;
+
+.product-item {
+    border: 1px solid #f1f1f1;
     padding: 25px;
-    max-width: 250px;
+    max-width: 230px;
     min-width: 175px;
     width: 100%;
     position: relative;
 }
-.product-item_img{
+
+.product-item_img {
     margin: 0 auto;
-    margin-bottom: 10px;
+    margin-bottom: 35px;
     display: block;
 }
-.product-item_name{
+
+.product-item_name {
     font: 600 18px "muller";
     color: black;
     text-decoration: none;
 }
-.product-item_description{
+
+.product-item_description {
     color: #acacac;
     font: 400 13px "muller";
-    margin: 8px auto;
+    margin: 12px auto;
 }
-.product-item_age{
-    width: 25px;
-    height: 30px;
+
+.product-item_age {
+    width: 35px;
+    height: 26px;
     text-align: center;
     line-height: 30px;
     font-weight: 600;
@@ -36,7 +41,37 @@
     position: absolute;
     top: 20px;
     right: 20px;
+    padding: 0 2px;
 }
-.product-item_age__yellow{
+
+.product-item_age__yellow {
     background: #fff852;
+}
+
+.product-item_price-line {
+    width: 100%;
+    height: 30px;
+    margin: 17px auto;
+}
+
+.product-item_price {
+    display: inline-block;
+    background: #FFE3F9;
+    max-width: 35%;
+    width: 100%;
+    text-align: center;
+    font: 600 18px "muller";
+    padding: 6px 5px 3px 5px;
+
+}
+
+.product-item_cart {
+    background: url("../img/icons/item_cart.svg") no-repeat;
+    float: right;
+    width: 50%;
+    height: 50px;
+    border: none;
+    background-size: 26px;
+    margin-top: 3px;
+
 }

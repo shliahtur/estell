@@ -25,6 +25,12 @@ namespace EstellApi.DAL
             return _context.Products.ToList();
         }
 
+        public List<Product> GetProductsByCategory(string cat)
+        {
+            var catid = _context.Categories.Where(x => x.UrlSeo == cat).FirstOrDefault().Id;
+            return _context.Products.Where(x => x.CategoryId == catid).ToList();
+        }
+
         public Product GetProductById(int id)
         {
             return _context.Products.Find(id);
@@ -81,6 +87,7 @@ namespace EstellApi.DAL
 
             Save();
         }
+
 
 
         #region Save

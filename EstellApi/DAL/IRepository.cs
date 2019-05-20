@@ -10,10 +10,14 @@ namespace EstellApi.DAL
     public interface IRepository : IDisposable
     {
         List<Product> GetProducts();
+        List<Product> GetProductsByCategory(string cat);
         Product GetProductById(int id);
         void AddNewProduct(Product product, IFormFile uploadedPic);
         void EditProduct(Product product, IFormFile uploadedPic);
         void DeleteProduct(int id);
+
+
+
 
         void Save();
     }

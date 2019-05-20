@@ -1,7 +1,9 @@
 import axios from 'axios';
 import history from '../history';
+import { showLoading, hideLoading } from 'react-redux-loading-bar'
 
 export const RECEIVE_PRODUCTS = 'GET_PRODUCTS';
+export const RECEIVE_PRODUCTS_BY_CATEGORY = 'RECEIVE_PRODUCTS_BY_CATEGORY';
 export const ADD_PRODUCT = 'ADD_PRODUCT';
 export const RECEIVE_PRODUCT = 'RECEIVE_PRODUCT';
 export const REMOVE_PRODUCT = 'REMOVE_PRODUCT';
@@ -9,13 +11,25 @@ export const UPDATE_PRODUCT = 'UPDATE_PRODUCT';
 export const REPLACE_PRODUCT = 'REPLACE_PRODUCT';
 
 
-const apiUrl = 'https://localhost:44326/api/RequestData';
+const apiUrl = 'http://localhost:50925/api/products';
 
 export const getProducts = () => {
   return (dispatch) => {
-    return axios.get(`${apiUrl}/RegRequestsSelect`)
+    dispatch(showLoading())
+    return axios.get(`${apiUrl}/GetProducts`)
       .then(response => {
         dispatch({ type: RECEIVE_PRODUCTS, products: response.data })
+        dispatch(hideLoading())
+      })
+      .catch(error => { throw (error); });
+  };
+};
+
+export const getProductsByCategory = (category) => {
+  return (dispatch) => {
+    return axios.get(`${apiUrl}/GetProductsByCategory/${category}`)
+      .then(response => {
+        dispatch({ type: RECEIVE_PRODUCTS_BY_CATEGORY, products: response.data })
       })
       .catch(error => { throw (error); });
   };

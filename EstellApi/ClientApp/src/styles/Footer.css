@@ -1,16 +1,27 @@
 .footer{
-    background: blue;
-    position: absolute;
-    padding: 50px;
-    width: 100%;
+    background: #F8DADA;
+    padding: 50px  40px 20px;
+    width: 100% !important;
+    flex: 0 0 auto;
    
+}
+.footer-nav{
+    text-align: right;
 }
 .footer a{
     text-decoration: none;
-    color: white;
+    color: #252525;
+    padding-left: 55px;
+    font-weight: 600;
+    font-size: 16px;
 }
-
+.foo-rights{
+    text-align: center;
+    margin-top: 50px;
+    font-weight: 600;
+    font-size: 16px;
+}
 .foo-contacts{
     margin: 0 auto;
-    color: white;
+    color: #252525;
 }

@@ -7,8 +7,8 @@
     margin: auto;
     text-decoration: none;
     color: black;
-    height: 28px;
-    padding: 5px 15px;
+    height: 14px;
+    padding: 8px 15px;
     font-weight: 600;
     font-size: 15px;
 }
@@ -26,18 +26,18 @@
     background-size: 90px;
 }
 .phone-icon{
-    height: 50px;
+    height: 38px;
     width: 50px;
     background: url('../img/icons/phone-icon.svg') no-repeat;
-    background-size: 28px;
+    background-size: 22px;
     display: block;
 
 }
 .search-icon{
-    height: 50px;
+    height: 38px;
     width: 50px;
     background: url('../img/icons/search_icon.svg') no-repeat;
-    background-size: 25px;
+    background-size: 22px;
     display: block;
 }
 .cart-wr{
@@ -46,10 +46,10 @@
     
 }
 .cart-icon{
-    height: 50px;
+    height: 35px;
     width: 50px;
     background: url('../img/icons/cart.svg') no-repeat;
-    background-size: 44px;
+    background-size: 34px;
     display: block;
 
 }
@@ -57,10 +57,9 @@
     position: absolute;
     width: 20px;
     height: 20px;
-    top: 4px;
-    left: 20px;
-    font-size: 21px;
-    
+    top: 2px;
+    left: 13px;
+    font-size: 17px;
 }
 .nav-icons{
     text-align: center;
@@ -70,6 +69,6 @@
     display: inline-block;
 
     width: 30px;
-    height: 30px;
+    height: 22px;
     margin: 0 20px;
 }
