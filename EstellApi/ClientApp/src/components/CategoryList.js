@@ -7,14 +7,14 @@ import "../styles/CategoryList.css"
 class CategoryList extends Component {
 
     render() {
-   const category = "bubbleezz";
+   const category = "molecules";
         return (
             <div className="category-container">
                 <div className="category-line">
-                    <Link to={category}>
+                    <Link to={'bubbleezz'}>
                         <div className="category-item bubbleezz"></div>
                     </Link>
-                    <Link to={`products`}>
+                    <Link to={`molecules`}>
                         <div className="category-item fluffables"></div>
                     </Link>
                     <Link to={`products`}>

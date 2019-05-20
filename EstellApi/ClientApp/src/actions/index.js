@@ -11,7 +11,7 @@ export const UPDATE_PRODUCT = 'UPDATE_PRODUCT';
 export const REPLACE_PRODUCT = 'REPLACE_PRODUCT';
 
 
-const apiUrl = 'http://localhost:50925/api/products';
+const apiUrl = 'http://localhost:55302/api/products';
 
 export const getProducts = () => {
   return (dispatch) => {
@@ -27,9 +27,11 @@ export const getProducts = () => {
 
 export const getProductsByCategory = (category) => {
   return (dispatch) => {
+    dispatch(showLoading())
     return axios.get(`${apiUrl}/GetProductsByCategory/${category}`)
       .then(response => {
         dispatch({ type: RECEIVE_PRODUCTS_BY_CATEGORY, products: response.data })
+        dispatch(hideLoading())
       })
       .catch(error => { throw (error); });
   };

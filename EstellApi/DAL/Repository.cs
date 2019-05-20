@@ -25,6 +25,7 @@ namespace EstellApi.DAL
             return _context.Products.ToList();
         }
 
+
         public List<Product> GetProductsByCategory(string cat)
         {
             var catid = _context.Categories.Where(x => x.UrlSeo == cat).FirstOrDefault().Id;
