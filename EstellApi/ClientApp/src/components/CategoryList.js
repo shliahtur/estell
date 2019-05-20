@@ -11,41 +11,50 @@ class CategoryList extends Component {
         return (
             <div className="category-container">
                 <div className="category-line">
-                    <Link to={`cat`}>
+                    <Link to={`products`}>
                         <div className="category-item bubbleezz"></div>
                     </Link>
-                    <Link to={`cat`}>
+                    <Link to={`products`}>
                         <div className="category-item fluffables"></div>
                     </Link>
-                    <Link to={`cat`}>
+                    <Link to={`products`}>
                         <div className="category-item fuzzeez"></div>
                     </Link>
                 </div>
                 <div className="category-line">
-                    <Link to={`cat`}>
+                    <Link to={`products`}>
                         <div className="category-item glitter-petz"></div>
                     </Link>
-                    <Link to={`cat`}>
+                    <Link to={`products`}>
                         <div className="category-item molecules"></div>
                     </Link>
-                    <Link to={`cat`}>
+                    <Link to={`products`}>
                         <div className="category-item plush-craft"></div>
                     </Link>
                 </div>
                 <div className="category-line">
-                    <Link to={`cat`}>
+                    <Link to={`products`}>
                         <div className="category-item squishies"></div>
                     </Link>
-                    <Link to={`cat`}>
+                    <Link to={`products`}>
                         <div className="category-item sticky-mosaics"></div>
                     </Link>
-                    <Link to={`cat`}>
+                    <Link to={`products`}>
                         <div className="category-item stick-n-style"></div>
                     </Link>
                 </div>
-                <Link to={`cat`}>
-                    <div className="category-item stick-n-style"></div>
-                </Link>
+                <div className="category-line">
+                    <Link to={`products`}>
+                        <div className="category-item mocheez"></div>
+                    </Link>
+                    <Link to={`products`}>
+                        <div className="category-item odditeez"></div>
+                    </Link>
+                    <Link to={`products`}>
+                        <div className="category-item slimi-cafe"></div>
+                    </Link>
+                </div>
+              
             </div>
 
         )

@@ -32,14 +32,23 @@ padding: 0 60px;
     background: url("../img/Categories/molecules.jpg") no-repeat
  }
 .plush-craft{
-
+    background: url("../img/Categories/plush-craft.jpg") no-repeat
 }
  .squishies{
-
+    background: url("../img/Categories/squishes.jpg") no-repeat
  }
  .sticky-mosaics{
-
+    background: url("../img/Categories/mosaics.jpg") no-repeat
  }
 .stick-n-style{
-
+    background: url("../img/Categories/stick-n-style.jpg") no-repeat
+}
+.mocheez{
+    background: url("../img/Categories/stick-n-style.jpg") no-repeat
+}
+.odditeez{
+    background: url("../img/Categories/stick-n-style.jpg") no-repeat
+}
+.slimi-cafe{
+    background: url("../img/Categories/slimi-cafe.jpg") no-repeat
 }
