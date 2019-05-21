@@ -22,7 +22,7 @@ class App extends Component {
           <LoadingBar/>
           <CallBtn/>
           <NavMenu />
-          <Main />
+          <Main /> 
           </div>
           <Footer />
         </div>
