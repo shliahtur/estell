@@ -21,8 +21,8 @@ class WhereToBuy extends Component {
             <div className="whereToBuy-container">
                 <button data-name={1} onClick={this.handleTab}>Роздрібні магазини</button>
                 <button data-name={2} onClick={this.handleTab}>Інтернет</button>
-                {activeTab === 1 &&  <Ecommerce />}
-                {activeTab === 2 &&  <Stores />}
+                {activeTab === 1 &&  <Stores />}
+                {activeTab === 2 &&  <Ecommerce />}
             </div>
 
         )
