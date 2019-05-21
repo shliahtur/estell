@@ -9,7 +9,6 @@ export default () => (
   <React.Fragment>
       <CategoryList/>
       <NewProductList/>
-      <WhereToBuy/>
   </React.Fragment>
   );
   

@@ -12,6 +12,7 @@ import CallBtn from './CallBtn';
 
 import '../styles/App.css'
 import Footer from './Footer';
+import WhereToBuy from './whereToBuy/WhereToBuy';
 
 class App extends Component {
   render() {
@@ -40,6 +41,9 @@ const Main = () => (
     <Route exact path="/products/new" component={ProductAdd} />
     <Route exact path="/products/:id" component={ProductInfo} />
     <Route exact path="/products/:id/edit" component={ProductEdit} />
+     <Route exact path="/products/:id/edit" component={ProductEdit} />
+     < Route exact path = "/where-to-buy"component = { WhereToBuy}
+     />
   </Switch>
 );
 
