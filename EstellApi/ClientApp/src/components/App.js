@@ -43,8 +43,7 @@ const Main = () => (
     <Route exact path="/products/:id" component={ProductInfo} />
     <Route exact path="/products/:id/edit" component={ProductEdit} />
      <Route exact path="/products/:id/edit" component={ProductEdit} />
-     < Route exact path = "/where-to-buy"component = { WhereToBuy}
-     />
+     <Route exact path = "/buy/where-to-buy" component = {WhereToBuy}/>
   </Switch>
 );
 

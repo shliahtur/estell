@@ -9,7 +9,7 @@ export default props => (
       <Link className="nav_logo" to={'/'}></Link>
       <Link className="nav_link" to={'/counter'}>Новости</Link>
       <Link className="nav_link" to={'/fetchdata'}>Прайс-лист</Link>
-      <Link className="nav_link" to={'/where-to-buy'}>Где купить?</Link>
+      <Link className="nav_link" to={'/buy/where-to-buy'}>Где купить?</Link>
       <Link className="nav_link" to={'/cart'}>Контакты</Link>
       <Link className="nav_link" to={'/'}>Бренды</Link>
 
