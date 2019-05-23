@@ -10,7 +10,7 @@ class ProductList extends Component {
   componentDidMount() {
     this.props.getProductsByCategory(this.props.match.params.catname);
   }
-
+  
   render() {
     if(this.props.products.length) {
       return (
