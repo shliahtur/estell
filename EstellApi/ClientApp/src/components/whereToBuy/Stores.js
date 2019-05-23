@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Preloader from '../Preloader';
 import Map from './Map';
+import { Link } from 'react-router-dom';
 
 import "../../styles/WhereToBuy.css"
 
@@ -8,7 +9,10 @@ class Stores extends Component {
 
     render() {
         return (
-            <React.Fragment>
+            <div>
+            <Link to={`where-to-buy`}>
+            <button>Назад</button>
+             </Link>
                 <Map/>
                 <div className="cities-list">
                     <ul>
@@ -18,7 +22,7 @@ class Stores extends Component {
                         <li></li>
                     </ul>
                 </div>
-            </React.Fragment>
+            </div>
 
         )
     }

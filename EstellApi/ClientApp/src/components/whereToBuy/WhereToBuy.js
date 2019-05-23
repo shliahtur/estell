@@ -1,31 +1,21 @@
 import React, { Component } from 'react';
-import Preloader from '../Preloader';
-import Ecommerce from './Ecommerce';
-import Stores from './Stores';
+import { Link } from 'react-router-dom';
 
 import "../../styles/WhereToBuy.css"
 
 class WhereToBuy extends Component {
-    state= {
-        activeTab: 1,
-    }
-    handleTab = (e) => {
-        this.setState({
-            activeTab: +e.target.getAttribute('data-name')
-        })
-    }
 
     render() {
-        const {activeTab} = this.state
         return (
-            <div className="whereToBuy-container">
-                <button data-name={1} onClick={this.handleTab}>Роздрібні магазини</button>
-                <button data-name={2} onClick={this.handleTab}>Інтернет</button>
-                {activeTab === 1 &&  <Stores />}
-                {activeTab === 2 &&  <Ecommerce />}
-            </div>
-
+            <div className="where-to-buy_container">
+             <Link to={`stores`}>
+            <button className="where-to-buy_button where-to-buy_button__left"></button>
+             </Link>
+             <Link to={`e-commerce`}>
+            <button  className="where-to-buy_button where-to-buy_button__right"></button> 
+            </Link>
+           </div>
         )
-    }
+    } 
 }
 export default WhereToBuy

@@ -15,10 +15,6 @@ namespace EstellApi.DAL
         void AddNewProduct(Product product, IFormFile uploadedPic);
         void EditProduct(Product product, IFormFile uploadedPic);
         void DeleteProduct(int id);
-
-
-
-
         void Save();
     }
 }
