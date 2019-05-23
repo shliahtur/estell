@@ -18,14 +18,14 @@ class WhereToBuy extends Component {
     render() {
         const {activeTab} = this.state
         return (
-            <div className="whereToBuy-container">
-                <button data-name={1} onClick={this.handleTab}>Роздрібні магазини</button>
-                <button data-name={2} onClick={this.handleTab}>Інтернет</button>
+            <div className="where-to-buy_container">
+                <button className="where-to-buy_button where-to-buy_button__left" data-name={1} onClick={this.handleTab}></button>
+                <button  className="where-to-buy_button where-to-buy_button__right" data-name={2} onClick={this.handleTab}></button>
                 {activeTab === 1 &&  <Stores />}
                 {activeTab === 2 &&  <Ecommerce />}
             </div>
 
         )
-    }
+    } 
 }
 export default WhereToBuy
