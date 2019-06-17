@@ -38,7 +38,6 @@ class ProductList extends Component {
   }
 }
 
-
 const mapStateToProps = (state) => ({ products: state.products });
 const mapDispatchToProps = { getProductsByCategory };
 

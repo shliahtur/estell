@@ -28,12 +28,14 @@ namespace EstellApi
                 .AddJsonOptions(options => options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore); 
 
             // In production, the React files will be served from this directory
+            
+            
             services.AddSpaStaticFiles(configuration =>
             {
                 configuration.RootPath = "ClientApp/build";
             });
             services.AddDbContext<EFDbContext>(options =>
-           options.UseSqlServer($"Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog={nameof(EFDbContext)};Integrated Security=True"));
+           options.UseSqlServer($"Data Source=localhost\\SQLEXPRESS;Initial Catalog={nameof(EFDbContext)};Integrated Security=True"));
 
             services.AddScoped<IRepository, Repository>();
         }
@@ -65,7 +67,7 @@ namespace EstellApi
             app.UseSpa(spa =>
             {
                 spa.Options.SourcePath = "ClientApp";
-
+               // spa.UseProxyToSpaDevelopmentServer("http://localhost:3000");
                 if (env.IsDevelopment())
                 {
                     spa.UseReactDevelopmentServer(npmScript: "start");

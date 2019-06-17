@@ -1,0 +1,44 @@
+.admin-table-container{
+    max-width: 1600px;
+    margin: 100px auto;
+}
+
+.admin-table{
+    width: 100%;
+}
+.admin-table td{ 
+    text-align: center;
+}
+.admin-table tbody tr:hover{
+    background-color: rgb(23, 221, 155);
+    color: white;
+    cursor: pointer;
+}
+.admin-table thead{
+ border-bottom: 1px solid grey;
+ padding-bottom: 10px;
+}
+.circle-btn {
+    float: right;
+    display: block;
+    width: 80px;
+    height: 80px;
+    border-radius: 100px;
+    background-color: #36dc5a;
+    color: white;
+    text-align: center;
+    margin: 30px 0;
+    box-shadow: 1px 3px 6px 2px #d2d2d2;
+}
+
+.circle-btn a {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.circle-btn:after {
+    content: "+";
+    font-size: 40px;
+    vertical-align: -70%;
+    text-decoration: none;
+}
