@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { getProducts } from "../../actions";
 import Preloader from "../Preloader";
 import ProductDetails from "./ProductDetails";
+import NewProduct from './NewProduct';
 
 import "../../styles/Admin.css";
 
@@ -11,16 +12,23 @@ class Admin extends Component {
     this.props.getProducts();
   }
   state = {
-    isOpen: false,
+    isOpenEdit: false,
+    isOpenNew: false,
     selectedProduct: ''
   };
 
   productDetails = (product) => {
-    this.setState({ isOpen: true, selectedProduct: product });
+    this.setState({ isOpenEdit: true, selectedProduct: product });
   };
 
+  newProduct = () => {
+    this.setState({
+      isOpenNew: true
+    })
+  }
+
   handleSubmit = () => {
-    this.setState({ isOpen: false });
+    this.setState({ isOpenEdit: false });
   };
 
   handleCancel = e => {
@@ -28,14 +36,14 @@ class Admin extends Component {
       e.target.className === "modalOverlay" ||
       e.target.className === "close-btn"
     ) {
-      this.setState({ isOpen: false });
+      this.setState({ isOpenNew: false, isOpenEdit: false });
     }
   };
 
   render() {
       return (
         <div className="admin-table-container">
-          <button className="circle-btn" onClick={this.productDetails}></button>
+          <button className="circle-btn" onClick={this.newProduct}></button>
           <table className="admin-table">
             <thead>
               <tr>
@@ -78,10 +86,17 @@ class Admin extends Component {
           {
             <ProductDetails
               product={this.state.selectedProduct}
-              isOpen={this.state.isOpen}
+              isOpen={this.state.isOpenEdit}
               onCancel={this.handleCancel}
               onSubmit={this.handleSubmit} 
             />    
+         }
+         {
+           <NewProduct
+               isOpen={this.state.isOpenNew}
+               onCancel={this.handleCancel}
+               >
+           </NewProduct>
          }
         </div>
       );

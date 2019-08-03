@@ -12,7 +12,7 @@ namespace EstellApi.DAL
         List<Product> GetProducts();
         List<Product> GetProductsByCategory(string cat);
         Product GetProductById(int id);
-        void AddNewProduct(Product product, IFormFile uploadedPic);
+        void AddNewProduct(Product product, List<Image> images);
         void EditProduct(Product product, IFormFile uploadedPic);
         void DeleteProduct(int id);
         void Save();

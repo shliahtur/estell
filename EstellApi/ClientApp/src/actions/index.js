@@ -9,6 +9,8 @@ export const RECEIVE_PRODUCT = 'RECEIVE_PRODUCT';
 export const REMOVE_PRODUCT = 'REMOVE_PRODUCT';
 export const UPDATE_PRODUCT = 'UPDATE_PRODUCT';
 export const REPLACE_PRODUCT = 'REPLACE_PRODUCT';
+export const SHOW_ALERT = 'SHOW_ALERT';
+export const SHOW_SPINNER = 'SHOW_SPINNER';
 
 
 const apiUrl = 'http://localhost:49865/api/products';
@@ -38,25 +40,28 @@ export const getProductsByCategory = (category) => {
 };
 
 
-export const addProduct = ({ name, description, imgPath, price, age, vendorCode }) => {
+export const addProduct = (props) => {
   return (dispatch) => {
-    return axios.post(`${apiUrl}/RegRequestCreate`, {
-        name, description, imgPath, price, age, vendorCode
+    dispatch(showSpinner(true))
+    axios.post(`${apiUrl}/AddNewProduct`, props)
+      .then(({ data }) => {
+        dispatch({
+          type: ADD_PRODUCT,
+          payload: data
+        });
+
       })
       .then(response => {
-        let data = response.data;
-
-        dispatch({
-          type: ADD_PRODUCT, payload: {
-             name: data.name, description: data.description, imgPath: data.imgPathm,
-             price: data.price, age: data.age, vendorCode: data.vendorCode
-          }
-        })
+        dispatch(showSpinner(false))
+        dispatch(showAlert(response));
       })
       .then(() => {
-        history.push("/products")
+        history.push("/")
       })
-      .catch(error => { throw (error) });
+      .catch(error => {
+        dispatch(showSpinner(false))
+        dispatch(showAlert(error.response));
+      });
   };
 };
 
@@ -106,3 +111,11 @@ export const updateProduct = (product) => {
   };
 };
 
+export const showAlert = (message) => ({
+  type: SHOW_ALERT,
+  payload: message,
+})
+export const showSpinner = (isShow) => ({
+  type: SHOW_SPINNER,
+  payload: isShow
+})

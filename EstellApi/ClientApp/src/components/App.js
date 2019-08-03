@@ -1,6 +1,5 @@
 ﻿import React, { Component } from 'react';
 import Home from './Home';
-import ProductAdd from './ProductAdd';
 import ProductList from './ProductList';
 import ProductInfo from './ProductInfo';
 import ProductEdit from './ProductEdit';
@@ -27,8 +26,6 @@ class App extends Component {
           </div>
           <Footer />
         </div>
-
-          
       </Router>
     );
   }
@@ -38,7 +35,6 @@ const Main = () => (
   <Switch>
     <Route exact path="/" component={Home} />
     <Route exact path="category/:catname" component={ProductList} />
-    <Route exact path="/products/new" component={ProductAdd} />
     <Route exact path="/products/:id" component={ProductInfo} />
     <Route exact path="/products/:id/edit" component={ProductEdit} />
     <Route exact path="/admin" component={Admin} />

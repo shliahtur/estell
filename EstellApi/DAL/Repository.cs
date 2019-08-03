@@ -37,54 +37,55 @@ namespace EstellApi.DAL
             return _context.Products.Find(id);
         }
 
-        public void AddNewProduct(Product product, IFormFile uploadedPic)
+        public void AddNewProduct(Product product, List<Image> images)
         {
             _context.Products.Add(product);
 
-            if (uploadedPic != null)
-            {
-                string path = "/Images/" + uploadedPic.FileName;
+            //if (uploadedPics != null)
+            //{
+            //    foreach(var pic in up)
+            //    string path = "/ClientApp/public/Products/" + uploadedPic.FileName;
 
-                using (var fileStream = new FileStream(_appEnvironment.WebRootPath + path, FileMode.Create))
-                {
-                    uploadedPic.CopyToAsync(fileStream);
-                }
-            }
+            //    using (var fileStream = new FileStream(_appEnvironment.WebRootPath + path, FileMode.Create))
+            //    {
+            //        uploadedPic.CopyToAsync(fileStream);
+            //    }
+            //}
 
             Save();
         }
 
         public void EditProduct(Product product, IFormFile uploadedPic)
         {
-            if (uploadedPic != null)
-            {
-                product.ImgName = uploadedPic.FileName;
-                string path = "/Images/" + uploadedPic.FileName;
-                product.ImgPath = path;
+            //if (uploadedPic != null)
+            //{
+            //    product.ImgName = uploadedPic.FileName;
+            //    string path = "/ClientApp/public/Products/" + uploadedPic.FileName;
+            //    product.ImgPath = path;
 
-                using (var fileStream = new FileStream(_appEnvironment.WebRootPath + path, FileMode.Create))
-                {
-                    uploadedPic.CopyToAsync(fileStream);
-                }
-            }
-            _context.Entry(product).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+            //    using (var fileStream = new FileStream(_appEnvironment.WebRootPath + path, FileMode.Create))
+            //    {
+            //        uploadedPic.CopyToAsync(fileStream);
+            //    }
+            //}
+            //_context.Entry(product).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
 
             Save();
         }
 
         public void DeleteProduct(int id)
         {
-            var product = _context.Products.Find(id);
-            _context.Products.Remove(product);
+            //var product = _context.Products.Find(id);
+            //_context.Products.Remove(product);
 
-            if (product.ImgName != null)
-            {
-                string path = _appEnvironment.WebRootPath + "/Images/" + product.ImgName;
-                if (File.Exists(path))
-                {
-                    File.Delete(path);
-                }
-            }
+            //if (product.ImgName != null)
+            //{
+            //    string path = _appEnvironment.WebRootPath + "/Images/" + product.ImgName;
+            //    if (File.Exists(path))
+            //    {
+            //        File.Delete(path);
+            //    }
+            //}
 
             Save();
         }

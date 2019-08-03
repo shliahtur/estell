@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EstellApi.Migrations
 {
     [DbContext(typeof(EFDbContext))]
-    [Migration("20190518163721_init")]
+    [Migration("20190803172234_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -36,6 +36,25 @@ namespace EstellApi.Migrations
                     b.ToTable("Categories");
                 });
 
+            modelBuilder.Entity("EstellApi.Model.Image", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Name");
+
+                    b.Property<string>("Path");
+
+                    b.Property<int?>("ProductId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("Images");
+                });
+
             modelBuilder.Entity("EstellApi.Model.Product", b =>
                 {
                     b.Property<int>("Id")
@@ -49,10 +68,6 @@ namespace EstellApi.Migrations
                     b.Property<DateTime>("CreatedOn");
 
                     b.Property<string>("Description");
-
-                    b.Property<string>("ImgName");
-
-                    b.Property<string>("ImgPath");
 
                     b.Property<string>("Name");
 
@@ -71,6 +86,13 @@ namespace EstellApi.Migrations
                     b.HasIndex("CategoryId");
 
                     b.ToTable("Products");
+                });
+
+            modelBuilder.Entity("EstellApi.Model.Image", b =>
+                {
+                    b.HasOne("EstellApi.Model.Product", "Product")
+                        .WithMany("Images")
+                        .HasForeignKey("ProductId");
                 });
 
             modelBuilder.Entity("EstellApi.Model.Product", b =>

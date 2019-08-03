@@ -1,11 +1,13 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace EstellApi.Model
 {
-    public class Product
+    public class NewProductViewModel
     {
-        public int Id { get; set; }
         public string Name { get; set; }
         public int Price { get; set; }
         public int Rate { get; set; }
@@ -14,12 +16,7 @@ namespace EstellApi.Model
         public string VendorCode { get; set; }
         public string UrlSeo { get; set; }
         public string Vendor { get; set; }
-        public DateTime CreatedOn { get; set; }
-
-        public ICollection<Image> Images { get; set; }
-
         public int CategoryId { get; set; }
-        public Category Category { get; set; }
-
+        public List<IFormFile> Images { get; set; }
     }
 }

@@ -1,12 +1,9 @@
 import React from 'react';
-
-import Portal from './portal/Portal';
+import Portal from './Helpers/Portal';
 
 import '../styles/Modal.css';
 
-const Modal = ({
-  title, isOpen, onSubmit, children, onCancel
-}) => {
+const Modal = ({ isOpen, children, onCancel}) => {
 
   return (
     <React.Fragment>
@@ -14,15 +11,9 @@ const Modal = ({
         <Portal>
           <div className="modalOverlay" onClick={onCancel}>
             <div className="modalWindow">
-              <div className="modalHeader">
-                <div className="modalTitle">{title}</div>
-                <div className="close-btn" name="times" onClick={onCancel}></div>
-              </div>
-              <div className="modalBody">
+                <div className="close-btn" onClick={onCancel}></div>
+               <div className="modalBody">
                 {children}
-              </div>
-              <div className="modalFooter">
-                <button onClick={onSubmit}>Отправить</button>
               </div>
             </div>
           </div>
