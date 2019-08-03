@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import Preloader from './Preloader';
 
 import "../styles/CategoryList.css"
 
 class CategoryList extends Component {
 
     render() {
-   const category = "molecules";
         return (
             <div className="category-container">
                 <div className="category-line">

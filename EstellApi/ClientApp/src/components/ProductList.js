@@ -26,7 +26,7 @@ class ProductList extends Component {
                   <button className="product-item_cart"></button>
                 </div>
                 <p className="product-item_article">{product.vendorCode}</p>
-                <span className="product-item_age product-item_age__yellow">{product.age}</span>
+                <span className="product-item_age product-item_age__yellow">{product.age}+</span>
               </div>
             );
           })}

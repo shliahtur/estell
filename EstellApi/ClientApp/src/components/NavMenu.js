@@ -12,7 +12,7 @@ export default props => (
       <Link className="nav_link" to={'/cart'}>Контакты</Link>
       <Link className="nav_link" to={'/'}>Бренды</Link>
       <div className="nav-icons">
-        <a className="nav-icons_item phone-icon" href="tel:0667469590"></a>
+        <a className="nav-icons_item phone-icon" href="tel:0667469590"> </a>
         <div className="nav-icons_item search-icon"></div>
         <div className="nav-icons_item cart-wr">
           <Link className="cart-icon" to={'/cart'}></Link>

@@ -1,8 +1,6 @@
-import React, { Fragment, Component } from "react";
-import { Link } from "react-router-dom";
+import React, { Component } from "react";
 import { connect } from "react-redux";
 import { getProducts } from "../../actions";
-import Modal from "../Modal";
 import Preloader from "../Preloader";
 import ProductDetails from "./ProductDetails";
 
@@ -27,8 +25,8 @@ class Admin extends Component {
 
   handleCancel = e => {
     if (
-      e.target.className == "modalOverlay" ||
-      e.target.className == "close-btn"
+      e.target.className === "modalOverlay" ||
+      e.target.className === "close-btn"
     ) {
       this.setState({ isOpen: false });
     }

@@ -18,7 +18,7 @@ export default class CallBtn extends Component {
       }
     
       handleCancel = (e) => {
-          if(e.target.className == 'modalOverlay' || e.target.className == 'close-btn'){
+          if(e.target.className === 'modalOverlay' || e.target.className === 'close-btn'){
             this.setState({ isOpen: false });
           }
       }
@@ -26,7 +26,7 @@ export default class CallBtn extends Component {
   render() {
     return (
         <Fragment>
-        <img className="call-btn" src={phoneIcon} onClick={this.openModal}/>
+        <img className="call-btn" src={phoneIcon} onClick={this.openModal} alt="call"/>
         <Modal className="modal-form"
           title="Заполните форму и мы Вам перезвоним"
           isOpen={this.state.isOpen}

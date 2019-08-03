@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import Slider from "react-slick";
 import "../styles/Products.css";
 import Preloader from './Preloader';
 
@@ -23,7 +22,7 @@ class NewProductList extends Component {
                   <button className="product-item_cart"></button>
                 </div>
                 <p className="product-item_article">{product.vendorCode}</p>
-                <span className="product-item_age product-item_age__yellow">{product.age}</span>
+                <span className="product-item_age product-item_age__yellow">{product.age}+</span>
               </div>
             );
           })}

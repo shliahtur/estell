@@ -11,7 +11,7 @@ export const UPDATE_PRODUCT = 'UPDATE_PRODUCT';
 export const REPLACE_PRODUCT = 'REPLACE_PRODUCT';
 
 
-const apiUrl = 'http://localhost:5001/api/products';
+const apiUrl = 'http://localhost:49865/api/products';
 
 export const getProducts = () => {
   return (dispatch) => {
