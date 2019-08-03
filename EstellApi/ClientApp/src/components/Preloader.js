@@ -4,7 +4,7 @@ import '../styles/Preloader.css';
 
 const Preloader = () => (
   <div className="preloader">
-     <div className="lds-ring"><div></div><div></div><div></div><div></div></div> 
+     {/* <div className="lds-ring"><div></div><div></div><div></div><div></div></div>  */}
   </div>
 );
 

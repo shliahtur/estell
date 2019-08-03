@@ -11,6 +11,7 @@ export const UPDATE_PRODUCT = 'UPDATE_PRODUCT';
 export const REPLACE_PRODUCT = 'REPLACE_PRODUCT';
 export const SHOW_ALERT = 'SHOW_ALERT';
 export const SHOW_SPINNER = 'SHOW_SPINNER';
+export const RECEIVE_CATEGORIES = 'RECEIVE_CATEGORIES';
 
 
 const apiUrl = 'http://localhost:49865/api/products';
@@ -21,6 +22,18 @@ export const getProducts = () => {
     return axios.get(`${apiUrl}/GetProducts`)
       .then(response => {
         dispatch({ type: RECEIVE_PRODUCTS, products: response.data })
+        dispatch(hideLoading())
+      })
+      .catch(error => { throw (error); });
+  };
+};
+
+export const getCategories = () => {
+  return (dispatch) => {
+    dispatch(showLoading())
+    return axios.get(`${apiUrl}/GetCategories`)
+      .then(response => {
+        dispatch({ type: RECEIVE_CATEGORIES, categories: response.data })
         dispatch(hideLoading())
       })
       .catch(error => { throw (error); });
@@ -43,7 +56,12 @@ export const getProductsByCategory = (category) => {
 export const addProduct = (props) => {
   return (dispatch) => {
     dispatch(showSpinner(true))
-    axios.post(`${apiUrl}/AddNewProduct`, props)
+
+    axios.post(`${apiUrl}/AddNewProduct`, props, {
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      }
+      })
       .then(({ data }) => {
         dispatch({
           type: ADD_PRODUCT,

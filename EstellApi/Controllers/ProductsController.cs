@@ -32,8 +32,16 @@ namespace EstellApi.Controllers
             return _repo.GetProductsByCategory(cat);
         }
 
+        [HttpGet("[action]")]
+        public ActionResult<IEnumerable<Category>> GetCategories()
+        {
+            return _repo.GetCategories();
+        }
+
+
+
         [HttpPost("[action]")]
-        public ActionResult AddNewProduct([FromBody] NewProductViewModel model)
+        public ActionResult AddNewProduct([FromBody]ProductViewModel model)
         {
             List<Image> images = new List<Image>();
 
@@ -49,16 +57,9 @@ namespace EstellApi.Controllers
                     });
                 }
             }
-
             Product product = new Product()
             {
-                Name = model.Name,
-                Age = model.Age,
-                Price = model.Price,
-                CategoryId = model.CategoryId,
-                Description = model.Description,
-                Vendor = model.Vendor,
-                VendorCode = model.VendorCode
+                Name = model.Name
             };
 
             _repo.AddNewProduct(product, images);

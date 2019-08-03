@@ -89,7 +89,10 @@ namespace EstellApi.DAL
 
             Save();
         }
-
+        public List<Category> GetCategories()
+        {
+            return _context.Categories.ToList();
+        }
 
 
         #region Save

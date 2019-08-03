@@ -1,21 +1,26 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addProduct } from '../../actions';
+import { addProduct, getCategories } from '../../actions';
 import Modal from '../Modal';
 import Input from '../Helpers/Input';
 
  class NewProduct extends Component {
     
     state={
-        Name: '',
-        CategoryId: '',
-        VendorCode: '',
-        Price: '',
-        Age: '',
-        Vendor: '',
-        Description: '',
+        Name: 'Toy1',
+        CategoryId: '1',
+        VendorCode: '12323',
+        Price: '120',
+        Age: '5',
+        Vendor: 'ORB',
+        Description: 'Super',
         Images: [],
+        categories: [],
         ImagePreviewUrls: []
+    }
+
+    componentDidMount() {
+      this.props.getCategories()
     }
 
     handleChange = (event) => {
@@ -41,9 +46,18 @@ import Input from '../Helpers/Input';
 
     handleSubmit = (event) => {
         event.preventDefault();
-
-          this.props.addProduct(this.state);
-      //  }
+        const {Name, Age, Description, Price, Vendor, VendorCode, CategoryId, Images} = this.state
+        const upload = {
+          Name: Name,
+          Age: Age,
+          Description: Description, 
+          Price: Price,
+          Vendor: Vendor,
+          VendorCode: VendorCode,
+          CategoryId: CategoryId,
+          Images: Images
+        }
+        this.props.addProduct(upload);
       };
 
     render() {
@@ -80,6 +94,7 @@ import Input from '../Helpers/Input';
         )
     }
 }
-const mapDispatchToProps = { addProduct };
+const mapDispatchToProps = { addProduct, getCategories };
+const mapStateToProps = (state) => ({ categories: state }); 
 
-export default connect(null, mapDispatchToProps)(NewProduct);
+export default connect(mapStateToProps, mapDispatchToProps)(NewProduct);
