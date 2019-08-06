@@ -81,7 +81,7 @@ import Input from '../Helpers/Input';
               
                 <select name="CategoryId" value={CategoryId} onChange={this.handleChange}>
                   { categories[0] ? categories.map(el =>
-                    <option value={el.id}>{el.name}</option>  
+                    <option key={el.id} value={el.id}>{el.name}</option>  
                   ) : ''
                 }
                 </select>

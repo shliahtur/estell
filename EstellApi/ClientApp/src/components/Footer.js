@@ -7,8 +7,6 @@ export default props => (
 
     <div className="footer">
         <div className="container">
-             
-           
             <div className="footer-nav">
                 <Link to={'/'}>Бренды</Link>
                 <Link to={'/fetchdata'}>Прайс-лист</Link>
@@ -19,9 +17,7 @@ export default props => (
             <div className="foo-rights">
                 Estell (c) 2019
             </div>
-            
         </div>
-
     </div>
 
 );

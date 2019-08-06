@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { getProducts } from "../../actions";
-import Preloader from "../Preloader";
 import ProductDetails from "./ProductDetails";
 import NewProduct from './NewProduct';
 import SideBar from "./SideBar";
@@ -94,7 +93,7 @@ class Admin extends Component {
               </tbody>
          
             :
-            <Preloader />
+             null
         }
         </table>
         {

@@ -1,48 +1,58 @@
-﻿import React, { Component, Fragment } from 'react';
+﻿import React, { Fragment } from 'react';
 import Home from './Home';
 import ProductList from './ProductList';
 import ProductInfo from './ProductInfo';
 import ProductEdit from './ProductEdit';
 import CallBtn from './CallBtn';
 import NavMenu from './NavMenu';
-import {Router, Route, Switch} from 'react-router-dom'
+import { Router, Route, Switch } from 'react-router-dom'
 import history from '../history';
 import LoadingBar from './LoadingBar';
-import '../styles/App.css'
 import Footer from './Footer';
 import Admin from './admin/Admin'
+import '../styles/Admin.css'
 
 
-class App extends Component {
-  render() {
-    return (
-      <Router history={history}>
-        <div className="wrapper">
-            <LoadingBar />
-            <Route exact path="/" component={Main}/>
-            <Route exact path="/admin" component={Admin}/>
-          </div>
-      </Router>
-    );
-  }
-}
+const AppRoute = ({ component: Component, layout: Layout, ...rest }) => (
+  <Route {...rest} render={props => (
+    <Layout>
+      <Component {...props} />
+    </Layout>
+  )} />
+)
 
-const Main = () => (
+const MainLayout = props => (
   <Fragment>
     <div className="content-wr">
-     <CallBtn />
-     <NavMenu />
-      <Switch>
-    <Route exact path="/" component={Home} />
-    <Route exact path="category/:catname" component={ProductList} />
-    <Route exact path="/product/:id" component={ProductInfo} />
-    <Route exact path="/products/:id/edit" component={ProductEdit} />
-  </Switch>
-  </div>
-  <Footer />
+      <LoadingBar />
+      <CallBtn />
+      <NavMenu />
+      {props.children}
+    </div>
+    <Footer />
   </Fragment>
+)
 
-);
+const AdminLayout = props => (
+  <Fragment>
+    <div className="admin-content">
+    <LoadingBar />
+    {props.children}
+    </div>
+  </Fragment>
+)
+
+const App = () => (
+  <Router history={history}>
+    <Switch>
+      <AppRoute exact path="/" layout={MainLayout} component={Home} />
+      <AppRoute exact path="category/:catname" layout={MainLayout} component={ProductList} />
+      <AppRoute exact path="/product/:id" layout={MainLayout} component={ProductInfo} />
+      <AppRoute exact path="/products/:id/edit" layout={MainLayout} component={ProductEdit} />
+      <AppRoute exact path="/admin" layout={AdminLayout} component={Admin} />
+    </Switch>
+  </Router>
+)
 
 
 export default App;
