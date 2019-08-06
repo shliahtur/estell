@@ -4,13 +4,22 @@ import { getProducts } from "../../actions";
 import Preloader from "../Preloader";
 import ProductDetails from "./ProductDetails";
 import NewProduct from './NewProduct';
-
+import SideBar from "./SideBar";
 import "../../styles/Admin.css";
 
+
 class Admin extends Component {
+
   componentDidMount() {
     this.props.getProducts();
   }
+
+  // componentDidUpdate(prevProps) {
+  //   if (prevProps.products !== this.props.products) {
+  //     this.props.getProducts();
+  //   }
+  // }
+
   state = {
     isOpenEdit: false,
     isOpenNew: false,
@@ -41,65 +50,71 @@ class Admin extends Component {
   };
 
   render() {
-      return (
-        <div className="admin-table-container">
-          <button className="circle-btn" onClick={this.newProduct}></button>
-          <table className="admin-table">
-            <thead>
-              <tr>
+    return (
+      <div>
+      <SideBar/>
+      <div className="admin-table-container">
+        <button className="circle-btn" onClick={this.newProduct}></button>
+        <table className="admin-table">
+          <thead>
+            <tr>
               <td>Наименование</td>
               <td>Цена</td>
               <td>Категория</td>
               <td>Артикул</td>
               <td>Возраст</td>
               <td>Изображение</td>
-              </tr>
-            </thead>
-            <tbody>
-            {
-              this.props.products.length > 0 ? 
-              this.props.products.map(product => {
-              return (
-                  <tr key={product.id} onClick={() => this.productDetails(product)}>
-                    <td>{product.id}</td>
-                    <td>{product.name}</td>
-                    <td>{product.price}</td>
-                    <td>{product.category}</td>
-                    <td>{product.vendorCode}</td>
-                    <td>{product.age}</td>
-                    <td>
-                      <img
-                        className="admin-product-item_img"
-                        src={product.imgPath}
-                        height={"50px"}
-                        alt={product.name}
-                      />
-                    </td>
-                  </tr>
-              );
-            }) 
-            :  
-            <Preloader /> 
-            }
-            </tbody>
-          </table>
-          {
-            <ProductDetails
-              product={this.state.selectedProduct}
-              isOpen={this.state.isOpenEdit}
-              onCancel={this.handleCancel}
-              onSubmit={this.handleSubmit} 
-            />    
-         }
-         {
-           <NewProduct
-               isOpen={this.state.isOpenNew}
-               onCancel={this.handleCancel}
-               >
-           </NewProduct>
-         }
-        </div>
-      );
+            </tr>
+          </thead>
+
+        {
+          this.props.products.length > 0 ?
+              <tbody>
+                {
+                  this.props.products.map(product => {
+                    return(
+                    <tr key={product.id} onClick={() => this.productDetails(product)}>
+                      <td>{product.name}</td>
+                      <td>{product.price}</td>
+                      <td>{product.category}</td>
+                      <td>{product.vendorCode}</td>
+                      <td>{product.age}</td>
+                      <td>
+                        <img
+                          className="admin-product-item_img"
+                          src={process.env.PUBLIC_URL + `/Products/${product.images[0].name}`}
+                          height={"50px"}
+                          alt={product.name}
+                        />
+                      </td>
+                    </tr>
+                    )
+                  })
+                }
+              </tbody>
+         
+            :
+            <Preloader />
+        }
+        </table>
+        {
+          <ProductDetails
+            product={this.state.selectedProduct}
+            isOpen={this.state.isOpenEdit}
+            onCancel={this.handleCancel}
+            onSubmit={this.handleSubmit}
+          />
+        }
+        {
+          <NewProduct
+            isOpen={this.state.isOpenNew}
+            onCancel={this.handleCancel}
+          >
+          </NewProduct>
+        }
+      </div>
+      </div>
+    );
   }
 }
 

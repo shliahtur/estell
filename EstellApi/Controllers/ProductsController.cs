@@ -25,6 +25,11 @@ namespace EstellApi.Controllers
         {
             return _repo.GetProducts();
         }
+        [HttpGet("[action]/{id}")]
+        public async Task<Product> GetProductById(int id)
+        {
+            return await _repo.GetProductById(id);
+        }
 
         [HttpGet("[action]/{cat}")]
         public ActionResult<IEnumerable<Product>> GetProductsByCategory(string cat)
@@ -41,28 +46,9 @@ namespace EstellApi.Controllers
 
 
         [HttpPost("[action]")]
-        public ActionResult AddNewProduct([FromBody]ProductViewModel model)
+        public async Task<IActionResult> AddNewProduct([FromForm]ProductViewModel model)
         {
-            List<Image> images = new List<Image>();
-
-            if (model.Images != null)
-            {
-                foreach(var image in model.Images)
-                {
-                    images.Add( new Image {
-
-                        Name = image.FileName,      
-                        Path = "/ClientApp/public/Products/" + image.FileName
-
-                    });
-                }
-            }
-            Product product = new Product()
-            {
-                Name = model.Name
-            };
-
-            _repo.AddNewProduct(product, images);
+            await _repo.AddNewProduct(model);
 
             return Ok();
         }

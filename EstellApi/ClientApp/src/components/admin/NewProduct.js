@@ -48,24 +48,25 @@ import Input from '../Helpers/Input';
         event.preventDefault();
         const {Name, Age, Description, Price, Vendor, VendorCode, CategoryId, Images} = this.state
         const upload = {
-          Name: Name,
-          Age: Age,
-          Description: Description, 
-          Price: Price,
-          Vendor: Vendor,
-          VendorCode: VendorCode,
-          CategoryId: CategoryId,
-          Images: Images
+          Product:{
+            Name: Name,
+            Age: Age,
+            Description: Description, 
+            Price: Price,
+            Vendor: Vendor,
+            VendorCode: VendorCode,
+            CategoryId: CategoryId,
+          },
+          Images: [...Images]
         }
         this.props.addProduct(upload);
       };
 
     render() {
-        const {isOpen, onCancel} = this.props;
-        const { Name, VendorCode, Vendor, Price, Age, Description, ImagePreviewUrls } = this.state
+        const {isOpen, onCancel, categories} = this.props;
+        const { Name, VendorCode, Vendor, Price, Age, Description, CategoryId, ImagePreviewUrls } = this.state
         return (
             <Modal
-
             isOpen={isOpen}
             onCancel={onCancel}
 
@@ -77,12 +78,18 @@ import Input from '../Helpers/Input';
                 <Input width={250} id="Age" label="Возраст"  name="Age" value={Age} onChange={this.handleChange} />
                 <Input width={250} id="VendorCode" label="Артикул" name="VendorCode" value={VendorCode} onChange={this.handleChange} />
                 <Input width={250} id="Vendor" label="Бренд" name="Vendor" value={Vendor} onChange={this.handleChange} />
-
+              
+                <select name="CategoryId" value={CategoryId} onChange={this.handleChange}>
+                  { categories[0] ? categories.map(el =>
+                    <option value={el.id}>{el.name}</option>  
+                  ) : ''
+                }
+                </select>
                 <input type="file" onChange={this.fileChangedHandler} />   
                 {
                     ImagePreviewUrls && 
                     ImagePreviewUrls.map(el =>
-                        <img width={100} src={el} />
+                        <img width={100} src={el}  alt="img"/>
                         )
                 }
                 <input type="submit" value="Добавить"/>
@@ -95,6 +102,6 @@ import Input from '../Helpers/Input';
     }
 }
 const mapDispatchToProps = { addProduct, getCategories };
-const mapStateToProps = (state) => ({ categories: state }); 
+const mapStateToProps = (state) => ({ categories: state.categories }); 
 
 export default connect(mapStateToProps, mapDispatchToProps)(NewProduct);

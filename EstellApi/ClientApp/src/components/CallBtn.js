@@ -26,7 +26,10 @@ export default class CallBtn extends Component {
   render() {
     return (
         <Fragment>
-        <img className="call-btn" src={phoneIcon} onClick={this.openModal} alt="call"/>
+          {
+            phoneIcon &&
+            <img className="call-btn" src={phoneIcon} onClick={this.openModal} alt="call"/>
+          }
         <Modal className="modal-form"
           title="Заполните форму и мы Вам перезвоним"
           isOpen={this.state.isOpen}

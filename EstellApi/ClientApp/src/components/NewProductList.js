@@ -14,8 +14,10 @@ class NewProductList extends Component {
           {this.props.products.map(product => {
             return (
               <div className="product-item" key={ product.id }>   
-                <img className="product-item_img" src={product.imgPath} height={"200px"} alt={product.name} />        
-                <h4><Link className="product-item_name" to={`/products/${product.id}`}>{product.name}</Link></h4>
+                <Link to={`/product/${product.id}`}>
+                <img className="product-item_img" src={process.env.PUBLIC_URL + `/Products/${product.images[0].name}`} height={"200px"} alt={product.name} />   
+                </Link>     
+                <h4><Link className="product-item_name" to={`/product/${product.id}`}>{product.name}</Link></h4>
                 <p className="product-item_description">{product.description}</p>
                 <div className="product-item_price-line">
                   <p className="product-item_price">{product.price} грн</p>

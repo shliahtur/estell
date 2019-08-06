@@ -1,9 +1,10 @@
 .call-btn{
+    height: 65px;
+    width: 65px;
     cursor: pointer;
     position: fixed;
     right: 5%;
     bottom: 5%;
-    height: 49px;
     z-index: 100;
     background-color: #9352ff;
     border-radius: 100%;

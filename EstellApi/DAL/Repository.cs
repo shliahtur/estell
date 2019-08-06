@@ -2,10 +2,12 @@
 using EstellApi.Model;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace EstellApi.DAL
 {
@@ -22,7 +24,8 @@ namespace EstellApi.DAL
 
         public List<Product> GetProducts()
         {
-            return _context.Products.ToList();
+            var res = _context.Products.Include(x => x.Images).ToList();
+            return res;
         }
 
 
@@ -32,25 +35,56 @@ namespace EstellApi.DAL
             return _context.Products.Where(x => x.CategoryId == catid).ToList();
         }
 
-        public Product GetProductById(int id)
+        public async Task<Product> GetProductById(int id)
         {
-            return _context.Products.Find(id);
+            return await _context.Products
+                .Include(x => x.Images)
+                .Include(x => x.Category)
+                .Where(x => x.Id == id).FirstOrDefaultAsync();
         }
 
-        public void AddNewProduct(Product product, List<Image> images)
+        public async Task AddNewProduct(ProductViewModel model)
         {
-            _context.Products.Add(product);
 
-            //if (uploadedPics != null)
-            //{
-            //    foreach(var pic in up)
-            //    string path = "/ClientApp/public/Products/" + uploadedPic.FileName;
+            Product product = new Product()
+            {
+                Name = model.Name,
+                Age = model.Age,
+                CategoryId = model.CategoryId,
+                Price = model.Price,
+                Vendor = model.Vendor,
+                VendorCode = model.VendorCode,
+                Description = model.Description,
+                CreatedOn = DateTime.Now,
 
-            //    using (var fileStream = new FileStream(_appEnvironment.WebRootPath + path, FileMode.Create))
-            //    {
-            //        uploadedPic.CopyToAsync(fileStream);
-            //    }
-            //}
+            };
+
+            List<Image> images = new List<Image>();
+            foreach (var img in model.Images)
+            {
+                images.Add(new Image
+                {
+                    Name = img.FileName,
+                    Path = "/ClientApp/public/Products/" + img.FileName,
+                    Product = product
+                });
+            }
+
+              _context.Products.Add(product);
+              _context.Images.AddRange(images);
+
+            if (model.Images != null)
+            {
+                foreach (var img in model.Images)
+                {
+                    string path = "/ClientApp/public/Products/" + img.FileName;
+
+                    using (var fileStream = new FileStream(_appEnvironment.ContentRootPath + path, FileMode.Create))
+                    {
+                       await img.CopyToAsync(fileStream);
+                    }
+                }
+            }
 
             Save();
         }

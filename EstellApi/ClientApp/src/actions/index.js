@@ -1,7 +1,7 @@
 import axios from 'axios';
 import history from '../history';
 import { showLoading, hideLoading } from 'react-redux-loading-bar'
-
+import FormData from 'form-data'
 export const RECEIVE_PRODUCTS = 'GET_PRODUCTS';
 export const RECEIVE_PRODUCTS_BY_CATEGORY = 'RECEIVE_PRODUCTS_BY_CATEGORY';
 export const ADD_PRODUCT = 'ADD_PRODUCT';
@@ -14,7 +14,7 @@ export const SHOW_SPINNER = 'SHOW_SPINNER';
 export const RECEIVE_CATEGORIES = 'RECEIVE_CATEGORIES';
 
 
-const apiUrl = 'http://localhost:49865/api/products';
+const apiUrl = 'http://localhost:49969/api/products';
 
 export const getProducts = () => {
   return (dispatch) => {
@@ -54,12 +54,22 @@ export const getProductsByCategory = (category) => {
 
 
 export const addProduct = (props) => {
+ 
+  let formData = new FormData();
+  
+  props.Images.map(el =>
+    formData.append("images", el)
+  )
+  Object.keys(props.Product)
+  .forEach(key => formData
+    .append(key, props.Product[key]));
+
   return (dispatch) => {
     dispatch(showSpinner(true))
 
-    axios.post(`${apiUrl}/AddNewProduct`, props, {
+    axios.post(`${apiUrl}/AddNewProduct`, formData, {
       headers: {
-        'Content-Type': 'application/x-www-form-urlencoded'
+        'Content-Type': 'multipart/form-data'
       }
       })
       .then(({ data }) => {
@@ -73,9 +83,6 @@ export const addProduct = (props) => {
         dispatch(showSpinner(false))
         dispatch(showAlert(response));
       })
-      .then(() => {
-        history.push("/")
-      })
       .catch(error => {
         dispatch(showSpinner(false))
         dispatch(showAlert(error.response));
@@ -85,7 +92,7 @@ export const addProduct = (props) => {
 
 export const getProduct = (id) => {
   return (dispatch) => {
-    return axios.get(`${apiUrl}/RegRequestsSelectById/${id}`)
+    return axios.get(`${apiUrl}/GetProductById/${id}`)
       .then(response => {
         dispatch({ type: RECEIVE_PRODUCT, product: response.data });
       })
