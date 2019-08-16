@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { getProducts, deleteProduct } from "../../actions";
+import { getProducts, deleteProduct, getCategories } from "../../actions";
 import ProductDetails from "./ProductDetails";
 import NewProduct from './NewProduct';
 import DeleteProduct from './DeleteProduct';
@@ -9,13 +9,6 @@ import "../../styles/Admin.css";
 
 
 class Admin extends Component {
-
-
-  // componentDidUpdate(prevProps) {
-  //   if (prevProps.products !== this.props.products) {
-  //     this.props.getProducts();
-  //   }
-  // }
 
   state = {
     isOpenEdit: false,
@@ -27,11 +20,14 @@ class Admin extends Component {
 
   componentDidMount() {
     this.props.getProducts();
+    this.props.getCategories();
   }
 
 
-  productDetails = (product) => {
-    this.setState({ isOpenEdit: true, selectedProduct: product });
+  productDetails = (event, product) => {
+    if(!event.target.classList.contains("action-btn")){
+      this.setState({ isOpenEdit: true, selectedProduct: product });
+    }
   };
 
   newProduct = () => {
@@ -86,13 +82,13 @@ class Admin extends Component {
             </thead>
 
             {
-              this.props.products.length > 0 ?
+              this.props.products.length > 0  ?
                 <tbody>
                   {
                     this.props.products.map(product => {
                       return (
-                        <tr key={product.id} >
-                          <td className="product-link" onClick={() => this.productDetails(product)}>{product.name}</td>
+                        <tr key={product.id} onClick={(event) => this.productDetails(event, product)}>
+                          <td>{product.name}</td>
                           <td>{product.price}</td>
                           <td>{product.category}</td>
                           <td>{product.vendorCode}</td>
@@ -127,6 +123,7 @@ class Admin extends Component {
               isOpen={this.state.isOpenEdit}
               onCancel={this.handleCancel}
               onSubmit={this.handleSubmit}
+              categories={this.props.categories}
             />
           }
           {
@@ -151,10 +148,10 @@ class Admin extends Component {
   }
 }
 
-const mapStateToProps = state => ({ products: state.products });
-const mapDispatchToProps = { getProducts, deleteProduct };
+const mapStateToProps = state => ({ products: state.products, categories: state.categories });
+const mapDispatchToProps = { getProducts, deleteProduct, getCategories };
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(Admin);

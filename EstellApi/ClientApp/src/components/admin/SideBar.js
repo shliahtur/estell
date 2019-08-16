@@ -7,7 +7,9 @@ class SideBar extends Component {
     render() {
         return (
             <div className="side-bar">
-                <div className="logo"></div>
+                <NavLink to="/">
+                    <button type="button">На сайт</button>
+                </NavLink>      
                 <NavLink to="/admin">
                     <button type="button">Каталог</button>
                 </NavLink>

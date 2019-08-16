@@ -8,9 +8,13 @@ import NavMenu from './NavMenu';
 import { Router, Route, Switch } from 'react-router-dom'
 import history from '../history';
 import LoadingBar from './LoadingBar';
+import WhereToBuy from './whereToBuy/WhereToBuy';
+import Stores from './whereToBuy/Stores';
+import Ecommerce from './whereToBuy/Ecommerce';
 import Footer from './Footer';
 import Admin from './admin/Admin'
 import '../styles/Admin.css'
+
 
 
 const AppRoute = ({ component: Component, layout: Layout, ...rest }) => (
@@ -48,6 +52,9 @@ const App = () => (
       <AppRoute exact path="/" layout={MainLayout} component={Home} />
       <AppRoute exact path="category/:catname" layout={MainLayout} component={ProductList} />
       <AppRoute exact path="/product/:id" layout={MainLayout} component={ProductInfo} />
+      <AppRoute exact path="/where-to-buy" layout={MainLayout} component={WhereToBuy} />
+      <AppRoute exact path="/stores" layout={MainLayout} component={Stores} />
+      <AppRoute exact path="/e-commerce" layout={MainLayout} component={Ecommerce} />
       <AppRoute exact path="/products/:id/edit" layout={MainLayout} component={ProductEdit} />
       <AppRoute exact path="/admin" layout={AdminLayout} component={Admin} />
     </Switch>
