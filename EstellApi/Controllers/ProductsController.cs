@@ -43,6 +43,12 @@ namespace EstellApi.Controllers
             return _repo.GetCategories();
         }
 
+        [HttpDelete("[action]/{id}")]
+        public void DeleteProduct(int id)
+        {
+            _repo.DeleteProduct(id);
+        }
+
 
 
         [HttpPost("[action]")]

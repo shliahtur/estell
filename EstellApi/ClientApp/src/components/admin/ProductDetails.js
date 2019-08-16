@@ -14,7 +14,7 @@ const ProductDetails = ({ product, isOpen, onCancel }) => {
       {
         product.images ?
         product.images.map(el =>     
-          <img className="product-item_img" src={process.env.PUBLIC_URL + `/Products/${el.name}`} height={"200px"} alt={product.name} />      
+          <img key={el.name} className="product-item_img" src={process.env.PUBLIC_URL + `/Products/${el.name}`} height={"200px"} alt={product.name} />      
           ) : ''
       }
       <h4 className="product-item_name">{product.name}</h4>

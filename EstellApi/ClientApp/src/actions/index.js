@@ -104,13 +104,11 @@ export const getProduct = (id) => {
 
 export const deleteProduct = (id) => {
   return (dispatch) => {
-    return axios.delete(`${apiUrl}/${id}.json`)
+    return axios.delete(`${apiUrl}/DeleteProduct/${id}`)
       .then(response => {
         dispatch({ type: REMOVE_PRODUCT, payload: { id } })
       })
-      .then(() => {
-        history.push("/products")
-      })
+     
       .catch(error => {
         throw (error);
       });

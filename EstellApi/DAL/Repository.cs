@@ -109,17 +109,26 @@ namespace EstellApi.DAL
 
         public void DeleteProduct(int id)
         {
-            //var product = _context.Products.Find(id);
-            //_context.Products.Remove(product);
+            var product = _context.Products.Find(id);
+            var images = _context.Images.Where(x => x.ProductId == id).ToList();
+            foreach(var img in images)
+            {
+                _context.Images.Remove(img);
+            }
+            _context.Products.Remove(product);
 
-            //if (product.ImgName != null)
-            //{
-            //    string path = _appEnvironment.WebRootPath + "/Images/" + product.ImgName;
-            //    if (File.Exists(path))
-            //    {
-            //        File.Delete(path);
-            //    }
-            //}
+            if (product.Images != null)
+            {
+                foreach(var img in product.Images)
+                {
+                    string path = _appEnvironment.ContentRootPath + "/ClientApp/public/Products/" + img.Name;
+                    if (File.Exists(path))
+                    {
+                        File.Delete(path);
+                    }
+                }
+            
+            }
 
             Save();
         }

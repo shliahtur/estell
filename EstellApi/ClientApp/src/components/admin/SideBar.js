@@ -8,15 +8,12 @@ class SideBar extends Component {
         return (
             <div className="side-bar">
                 <div className="logo"></div>
-                <NavLink to="/">
-                    <button type="button">На сайт</button>
+                <NavLink to="/admin">
+                    <button type="button">Каталог</button>
                 </NavLink>
-                <NavLink to="/documents/new">
-                    <button type="button">Нове розпорядження</button>
-                </NavLink>       
-                <NavLink to="/registers">
-                    <button type="button">Реєстр</button>
-                </NavLink>         
+                <NavLink to="/admin/rozetka">
+                    <button type="button">Розетка</button>
+                </NavLink>          
             </div>
 
         );
