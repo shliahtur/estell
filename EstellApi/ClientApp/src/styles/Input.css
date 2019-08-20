@@ -1,0 +1,61 @@
+.input {
+    box-sizing: border-box;
+    height: 40px;
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #d0d0d0;
+  }
+  .input-disabled{
+    cursor: default;
+    box-shadow: none !important;
+  }
+
+  .input[disabled] {
+    cursor: not-allowed;
+  }
+  
+  .input[name="checkbox"],
+  .input[name="radio"] {
+    width: 40px;
+    height: 40px;
+    margin: 0 auto;
+  }
+
+  .input:focus{
+    box-shadow: 0 0 3px 1px #abadff;
+  }
+  
+  .input.error {
+    background: #fff5e8;
+  }
+  
+  .inputWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+  }
+  
+  .labelsWrapper {
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .inputRequired {
+    color: #777;
+  }
+  
+  .inputRequired,
+  .inputLabel {
+    font-weight: 600;
+    font-size: 14px;
+    margin-top: 20px;
+    margin-bottom: 8px;
+  }
+  
+  .inputError {
+    margin-top: 5px;
+    color: #ff0000;
+    font-size: 13px;
+  }

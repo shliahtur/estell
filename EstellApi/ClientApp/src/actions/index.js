@@ -12,6 +12,7 @@ export const REPLACE_PRODUCT = 'REPLACE_PRODUCT';
 export const SHOW_ALERT = 'SHOW_ALERT';
 export const SHOW_SPINNER = 'SHOW_SPINNER';
 export const RECEIVE_CATEGORIES = 'RECEIVE_CATEGORIES';
+export const GET_SEARCH_PRODUCTS = 'GET_SEARCH_PRODUCTS';
 
 
 const apiUrl = 'http://localhost:49969/api/products';
@@ -142,3 +143,13 @@ export const showSpinner = (isShow) => ({
   type: SHOW_SPINNER,
   payload: isShow
 })
+
+export const getSearchProducts = (searchText) => {
+  return (dispatch) => {
+    return axios.get(`${apiUrl}/GetSearchProducts/${searchText}`)
+      .then(response => {
+        dispatch({ type: GET_SEARCH_PRODUCTS, searchProducts: response.data })
+      })
+      .catch(error => { throw (error); });
+  };
+};

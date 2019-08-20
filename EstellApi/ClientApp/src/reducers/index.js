@@ -5,6 +5,7 @@ import product from './productReducer';
 import categories from './categoriesReducer';
 import spinner from './spinnerReducer';
 import alert from './alertReducer';
+import searchProducts from './searchProductsReducer';
 
 export default combineReducers({
   loadingBar: loadingBarReducer,
@@ -12,5 +13,7 @@ export default combineReducers({
   product: product,
   categories: categories,
   spinner: spinner,
-  alert: alert
+  alert: alert,
+  searchProducts: searchProducts,
+  
 });

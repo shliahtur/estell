@@ -30,8 +30,8 @@ import Input from '../Helpers/Input';
     };
 
     fileChangedHandler = (event) => {
-        event.preventDefault();
 
+        event.preventDefault();
         let reader = new FileReader();
         let file = event.target.files[0];
 
@@ -41,6 +41,7 @@ import Input from '../Helpers/Input';
             ImagePreviewUrls: [...this.state.ImagePreviewUrls, reader.result]
           });
         }
+        
         reader.readAsDataURL(file)
       }
 

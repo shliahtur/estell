@@ -1,78 +1,45 @@
 :root{
     --border: #e4e4e4;
     --green: #17dd9b;
+    --smoke: #424242;
   }
 
 .admin-content{
-    background: #f3f4f7;
     position: absolute;
     height: 100%;
     width: 100%;
+    background: #f7f9f9;
 }
 .admin-table-container{
     max-width: 1600px;
-    margin-left: 230px;
+    margin-left: 300px;
 }
-
 .admin-table{
     width: 100%;
-    background: white;
-    border-bottom: 1px solid var(--border);
-    box-shadow: 0 0 13px #e6e8ec;
-    border-radius: 6px;
-}
-.admin-table thead {
-    border-bottom: 1px solid var(--border) !important;
 }
 .admin-table thead td{
-   padding: 20px 0px;
+   padding: 20px 10px;
+   font-weight: 700;
+   color: #a2a2a2;
 }
 .admin-table td{ 
     text-align: center;
-    padding: 5px;
-}
-.admin-table tbody tr:nth-child(odd){
-    background: #f5f5f5
+    padding: 4px 10px;
+    text-align: left;
 }
 .admin-table tr {
     cursor: pointer;
+    border-bottom: 1px solid #efefef;
 }
 .admin-table tbody tr:hover{
-   background: var(--green);
-   color: white;
-}
-.admin-table thead{
- border-bottom: 1px solid grey;
- padding-bottom: 10px;
-}
-.circle-btn {
-    float: right;
-    display: block;
-    width: 80px;
-    height: 80px;
-    border-radius: 100px;
-    background-color: #36dc5a;
-    color: white;
-    text-align: center;
-    margin: 30px 0;
-    box-shadow: 1px 3px 6px 2px #d2d2d2;
+    box-shadow: 0px 0px 19px #ececec;
 }
 
-.circle-btn a {
-    color: #FFFFFF;
-    text-decoration: none;
-}
-
-.circle-btn:after {
-    content: "+";
-    font-size: 40px;
-    vertical-align: -70%;
-    text-decoration: none;
-}
 .btn-container{
     width: 40px;
     height: 40px;
     position: relative;
+    top: 10px;
 }
 
  .action-btn{
@@ -107,4 +74,51 @@
 }
 .product-link:hover{
     cursor: pointer;
+}
+.category-name{
+    font-size: 36px;
+    font-weight: 700;
+}
+.category-name-wrapper{
+    display: flex;
+    width: fit-content;
+}
+.category-items-counter{
+    height: 25px;
+    line-height: 26px;
+    padding: 0 14px;
+    font-size: 16px;
+    background: #d4d4d4;
+    color: white;
+    border-radius: 59px;
+    position: relative;
+    left: 15px;
+    text-align: center;
+    top: 6px;
+    font-weight: 700;
+}
+.table-header{
+    margin: 60px 0;
+}
+.add-new-btn{
+    float: right;
+    height: 40px;
+    width: 140px;
+    padding-left: 19px;
+    border: none;
+    border-radius: 6px;
+    color: white;
+    background: #4374ff;
+    position: relative;
+    right: 50px;
+}
+.add-new-btn:hover{
+    background: #3966e0;
+}
+.add-new-btn::before{
+    content: "+";
+    display: block;
+    font-weight: 700;
+    font-size: 20px;
+    position: absolute;
 }

@@ -4,7 +4,6 @@ import Portal from './Helpers/Portal';
 import '../styles/Modal.css';
 
 const Modal = ({ isOpen, children, onCancel}) => {
-
   return (
     <React.Fragment>
       { isOpen &&

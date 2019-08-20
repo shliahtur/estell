@@ -6,8 +6,6 @@ import { updateProduct } from '../actions';
 class ProductEdit extends React.Component {
 
 
-
-
   handleChange = (event) => {
     this.setState({ [event.target.name]: event.target.value });
   };
@@ -15,9 +13,7 @@ class ProductEdit extends React.Component {
   handleSubmit = (event) => {
     event.preventDefault();
 
-
     const product = {
-
 
     }
     this.props.updateProduct(product);
@@ -30,11 +26,9 @@ class ProductEdit extends React.Component {
   render() {
     return (
       <div>
-        <form onSubmit={this.handleSubmit}>
-        
+        <form onSubmit={this.handleSubmit}>      
           <button type="submit" className="btn btn-dark">Update</button>
           <button type="button" onClick={this.handleCancel} className="btn btn-secondary">Cancel</button>
-
         </form>
       </div>
     );

@@ -89,6 +89,21 @@ namespace EstellApi.DAL
             Save();
         }
 
+        public Task<List<SearchProductModel>> GetLiveSearchProductList(string searchText)
+        {
+            var text = searchText.Trim().ToLower();
+            return  _context.Products
+                .Where(t => t.Name.ToLower().Contains(text))
+                .Select(x => new SearchProductModel
+                {
+                    Id = x.Id,
+                    Name = x.Name,
+                    ImgPath = x.Images.FirstOrDefault().Path
+                })
+                .ToListAsync();
+   
+        }
+
         public void EditProduct(Product product, IFormFile uploadedPic)
         {
             //if (uploadedPic != null)

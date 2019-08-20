@@ -7,14 +7,16 @@ import CallBtn from './CallBtn';
 import NavMenu from './NavMenu';
 import { Router, Route, Switch } from 'react-router-dom'
 import history from '../history';
-import LoadingBar from './LoadingBar';
+import LoadingBar from './Helpers/LoadingBar';
 import WhereToBuy from './whereToBuy/WhereToBuy';
 import Stores from './whereToBuy/Stores';
 import Ecommerce from './whereToBuy/Ecommerce';
 import Footer from './Footer';
-import Admin from './admin/Admin'
-import '../styles/Admin.css'
+import Admin from './admin/Admin';
+import SideBar from './admin/SideBar';
+import Rozetka from './admin/Rozetka';
 
+import '../styles/Admin.css'
 
 
 const AppRoute = ({ component: Component, layout: Layout, ...rest }) => (
@@ -41,6 +43,7 @@ const AdminLayout = props => (
   <Fragment>
     <div className="admin-content">
     <LoadingBar />
+    <SideBar url={history.location.pathname}/>
     {props.children}
     </div>
   </Fragment>
@@ -57,6 +60,7 @@ const App = () => (
       <AppRoute exact path="/e-commerce" layout={MainLayout} component={Ecommerce} />
       <AppRoute exact path="/products/:id/edit" layout={MainLayout} component={ProductEdit} />
       <AppRoute exact path="/admin" layout={AdminLayout} component={Admin} />
+      <AppRoute exact path="/admin/rozetka" layout={AdminLayout} component={Rozetka} />
     </Switch>
   </Router>
 )

@@ -12,6 +12,8 @@ namespace EstellApi.DAL
         List<Product> GetProducts();
         List<Product> GetProductsByCategory(string cat);
         Task<Product> GetProductById(int id);
+
+        Task<List<SearchProductModel>> GetLiveSearchProductList(string searchText);
         Task AddNewProduct(ProductViewModel model);
         void EditProduct(Product product, IFormFile uploadedPic);
         void DeleteProduct(int id);

@@ -5,6 +5,7 @@
     top: 20px;
     width: 20px;
     height: 20px;
+    z-index: 2;
 }
 
 .close-btn:before, .close-btn:after {
@@ -39,10 +40,12 @@
     transform: translate(-50%, -50%);
     background-color: #FFF;
     min-height: 200px;
+    max-height: 100%;
     width: 500px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    border-radius: 7px;
   }
   
   .modalHeader,

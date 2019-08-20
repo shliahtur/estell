@@ -5,7 +5,7 @@ export default class Header extends React.Component {
   render() {
     return (
       <header>
-        <LoadingBar style={{backgroundColor: "#e7eaf3", height: "5px"}} />
+        <LoadingBar style={{backgroundColor: "#e7eaf3", height: "5px", zIndex: "1"}} />
       </header>
     )
   }

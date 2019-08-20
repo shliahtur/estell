@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { getProducts, deleteProduct, getCategories } from "../../actions";
+import { getProducts, deleteProduct, getCategories, getSearchProducts } from "../../actions";
 import ProductDetails from "./ProductDetails";
 import NewProduct from './NewProduct';
 import DeleteProduct from './DeleteProduct';
-import SideBar from "./SideBar";
+import LiveSearch from '../Helpers/LiveSearch';
 import "../../styles/Admin.css";
 
 
@@ -16,6 +16,8 @@ class Admin extends Component {
     isOpenDelete: false,
     selectedProduct: '',
     selectedDeleteProductId: '',
+    selectedCategory: '',
+    searchString: '',
   };
 
   componentDidMount() {
@@ -30,6 +32,10 @@ class Admin extends Component {
     }
   };
 
+  getSearchProducts = () => {
+    this.props.getSearchProducts();
+  }
+
   newProduct = () => {
     this.setState({
       isOpenNew: true
@@ -43,6 +49,14 @@ class Admin extends Component {
   handleDelete = () => {
     this.setState({ isOpenDelete: false,  });
     this.props.deleteProduct(this.state.selectedDeleteProductId)
+  }
+
+
+  handleSearch = (value) => {
+    this.props.getSearchProducts(value);
+    this.setState({
+      searchString: value
+    })
   }
 
   handleCancel = e => {
@@ -63,36 +77,52 @@ class Admin extends Component {
   }
 
   render() {
+    const {products, categories, searchProducts} = this.props;
+    const {selectedCategory, searchString} = this.state;
+
     return (
       <div>
-        <SideBar />
         <div className="admin-table-container">
-          <button className="circle-btn" onClick={this.newProduct}></button>
+          <div className="table-header">
+            <LiveSearch items={searchProducts} value={searchString} width={300}  onChange={this.handleSearch}/>
+          <button className="add-new-btn" onClick={this.newProduct}>Добавить</button>
+         <div className="category-name-wrapper">
+          <div className="category-name">
+            {selectedCategory ?
+                selectedCategory :
+                "Усi товари"
+            }
+          </div>
+         {products.length > 0 ?
+          <div className="category-items-counter">{products.length}</div>
+          :
+          null
+         }
+          </div>
+          </div>
           <table className="admin-table">
             <thead>
               <tr>
+                <td></td>
+                <td>Изображение</td>
+                <td>Артикул</td>
                 <td>Наименование</td>
                 <td>Цена</td>
                 <td>Категория</td>
                 <td>Артикул</td>
                 <td>Возраст</td>
-                <td>Изображение</td>
                 <td></td>
               </tr>
             </thead>
 
             {
-              this.props.products.length > 0  ?
+               products.length > 0  ?
                 <tbody>
                   {
-                    this.props.products.map(product => {
+                    products.map(product => {
                       return (
                         <tr key={product.id} onClick={(event) => this.productDetails(event, product)}>
-                          <td>{product.name}</td>
-                          <td>{product.price}</td>
-                          <td>{product.category}</td>
-                          <td>{product.vendorCode}</td>
-                          <td>{product.age}</td>
+                          <td><input type="checkbox" /></td>
                           <td>
                             <img
                               className="admin-product-item_img"
@@ -101,6 +131,16 @@ class Admin extends Component {
                               alt={product.name}
                             />
                           </td>
+                          <td>{product.vendorCode}</td>
+                          <td>{product.name}</td>
+                          <td>{product.price}</td>
+                          <td>{
+                             categories[0] ?
+                              categories.filter(cat => cat.id === product.categoryId)[0].name 
+                              : "e"
+                            }</td>
+                          <td>{product.vendorCode}</td>
+                          <td>{product.age}</td>
                           <td>
                             <div className="btn-container">
                               <div className="delete-btn-icon"></div>
@@ -148,8 +188,8 @@ class Admin extends Component {
   }
 }
 
-const mapStateToProps = state => ({ products: state.products, categories: state.categories });
-const mapDispatchToProps = { getProducts, deleteProduct, getCategories };
+const mapStateToProps = state => ({ products: state.products, categories: state.categories, searchProducts: state.searchProducts });
+const mapDispatchToProps = { getProducts, deleteProduct, getCategories, getSearchProducts};
 
 export default connect(
   mapStateToProps,
