@@ -5,6 +5,7 @@ import ProductDetails from "./ProductDetails";
 import NewProduct from './NewProduct';
 import DeleteProduct from './DeleteProduct';
 import LiveSearch from '../Helpers/LiveSearch';
+import Input from '../Helpers/Input';
 import "../../styles/Admin.css";
 
 
@@ -53,9 +54,10 @@ class Admin extends Component {
 
 
   handleSearch = (value) => {
-    this.props.getSearchProducts(value);
+    let text = value.target.value
+    this.props.getSearchProducts(text);
     this.setState({
-      searchString: value
+      searchString: text
     })
   }
 
@@ -77,28 +79,35 @@ class Admin extends Component {
   }
 
   render() {
-    const {products, categories, searchProducts} = this.props;
+
+    const {categories, searchProducts, products} = this.props;
     const {selectedCategory, searchString} = this.state;
+    const filteredProducts = searchProducts[0] != null ? searchProducts : products
 
     return (
       <div>
         <div className="admin-table-container">
           <div className="table-header">
-            <LiveSearch items={searchProducts} value={searchString} width={300}  onChange={this.handleSearch}/>
-          <button className="add-new-btn" onClick={this.newProduct}>Добавить</button>
          <div className="category-name-wrapper">
           <div className="category-name">
             {selectedCategory ?
                 selectedCategory :
-                "Усi товари"
+                searchString ? "Поиск" :    
+                "Все товары"
             }
           </div>
-         {products.length > 0 ?
-          <div className="category-items-counter">{products.length}</div>
+         {filteredProducts.length > 0 ?
+          <div className="category-items-counter">{filteredProducts.length}</div>
           :
           null
          }
           </div>
+         <div className="search-field">
+          <div className="search-icon"></div>
+         <Input placeholder="Пошук.." className="search-input" value={searchString} width={300} onChange={this.handleSearch}/>
+         </div>
+
+          <button className="add-new-btn" onClick={this.newProduct}>Добавить</button>
           </div>
           <table className="admin-table">
             <thead>
@@ -116,10 +125,10 @@ class Admin extends Component {
             </thead>
 
             {
-               products.length > 0  ?
+               filteredProducts.length > 0  ?
                 <tbody>
                   {
-                    products.map(product => {
+                    filteredProducts.map(product => {
                       return (
                         <tr key={product.id} onClick={(event) => this.productDetails(event, product)}>
                           <td><input type="checkbox" /></td>

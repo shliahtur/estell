@@ -103,6 +103,15 @@ namespace EstellApi.DAL
                 .ToListAsync();
    
         }
+        public Task<List<Product>> GetSearchProductList(string searchText)
+        {
+            var text = searchText.Trim().ToLower();
+            return _context.Products
+                .Where(t => t.Name.ToLower().Contains(text))
+                .Include(x => x.Images)
+                .ToListAsync();
+
+        }
 
         public void EditProduct(Product product, IFormFile uploadedPic)
         {

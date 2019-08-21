@@ -19,6 +19,7 @@
     "react-router-redux": "^5.0.0-alpha.8",
     "react-scripts": "1.0.17",
     "react-slick": "^0.24.0",
+    "react-transition-group": "^4.2.2",
     "redux": "^3.7.2",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.2.0",

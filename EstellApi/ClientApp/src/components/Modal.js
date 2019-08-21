@@ -3,22 +3,23 @@ import Portal from './Helpers/Portal';
 
 import '../styles/Modal.css';
 
-const Modal = ({ isOpen, children, onCancel}) => {
+const Modal = ({ isOpen, children, onCancel }) => {
   return (
     <React.Fragment>
-      { isOpen &&
+      {isOpen &&
         <Portal>
-          <div className="modalOverlay" onClick={onCancel}>
-            <div className="modalWindow">
-                <div className="close-btn" onClick={onCancel}></div>
-               <div className="modalBody">
-                {children}
-              </div>
+            <div className="modalOverlay" onClick={onCancel}> 
+                <div className="modalWindow">
+                  <div className="close-btn" onClick={onCancel}></div>
+                  <div className="modalBody">
+                    {children}
+                  </div>
+                </div>
             </div>
-          </div>
         </Portal>
       }
     </React.Fragment>
+
   );
 };
 

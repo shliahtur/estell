@@ -8,7 +8,6 @@
     position: absolute;
     height: 100%;
     width: 100%;
-    background: #f7f9f9;
 }
 .admin-table-container{
     max-width: 1600px;
@@ -99,9 +98,11 @@
 }
 .table-header{
     margin: 60px 0;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
 }
-.add-new-btn{
-    float: right;
+.add-new-btn{   
     height: 40px;
     width: 140px;
     padding-left: 19px;
@@ -109,8 +110,6 @@
     border-radius: 6px;
     color: white;
     background: #4374ff;
-    position: relative;
-    right: 50px;
 }
 .add-new-btn:hover{
     background: #3966e0;
@@ -121,4 +120,23 @@
     font-weight: 700;
     font-size: 20px;
     position: absolute;
+}
+.search-field{
+    position: relative;
+
+}
+.search-icon{
+    height: 18px;
+    width: 18px;
+    background: url(../img/search_icon.svg) no-repeat;
+    background-size: 18px;
+    position: absolute;
+    z-index: 1;
+    top: 16px;
+    left: 14px;
+}
+.search-input{
+    padding-left: 40px;
+    font-size: 14px;
+    border-radius: 6px;
 }

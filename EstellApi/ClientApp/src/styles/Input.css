@@ -21,10 +21,6 @@
     margin: 0 auto;
   }
 
-  .input:focus{
-    box-shadow: 0 0 3px 1px #abadff;
-  }
-  
   .input.error {
     background: #fff5e8;
   }

@@ -27,9 +27,9 @@ namespace EstellApi.Controllers
         }
 
         [HttpGet("[action]/{searchText}")]
-        public async Task<IEnumerable<SearchProductModel>> GetSearchProducts(string searchText)
+        public async Task<IEnumerable<Product>> GetSearchProducts(string searchText)
         {
-            return await _repo.GetLiveSearchProductList(searchText);
+            return await _repo.GetSearchProductList(searchText);
         }
 
         [HttpGet("[action]/{id}")]
