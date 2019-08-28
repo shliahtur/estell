@@ -57,6 +57,13 @@ namespace EstellApi.Controllers
         }
 
 
+        [HttpPost("[action]")]
+        public async Task<IActionResult> EditProduct([FromForm]ProductViewModel model)
+        {
+            await _repo.EditProduct(model);
+
+            return Ok();
+        }
 
         [HttpPost("[action]")]
         public async Task<IActionResult> AddNewProduct([FromForm]ProductViewModel model)

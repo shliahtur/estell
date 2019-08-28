@@ -116,22 +116,32 @@ export const deleteProduct = (id) => {
   };
 };
 
-export const updateProduct = (product) => {
-  const productId = product.id;
+export const updateProduct = (props) => {
+  let formData = new FormData();
+  
+  props.Images.map(el =>
+    formData.append("images", el)
+  )
+  Object.keys(props.Product)
+  .forEach(key => formData
+    .append(key, props.Product[key]));
+
   return (dispatch) => {
-    return axios.patch(`${apiUrl}/${product.id}.json`, {  name: product.name, description: product.description, imgPath: product.imgPathm,
-        price: product.price, age: product.age, vendorCode: product.vendorCode })
+    dispatch(showSpinner(true))
+
+    axios.post(`${apiUrl}/EditProduct`, formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data'
+      }
+      })
       .then(response => {
-        const data = response.data;
-        dispatch({ type: UPDATE_PRODUCT, payload: { id: data.id,  name: data.name, description: data.description, imgPath: data.imgPathm,
-            price: data.price, age: data.age, vendorCode: data.vendorCode } })
-        dispatch({ type: REPLACE_PRODUCT, payload: { id: data.id,  name: data.name, description: data.description, imgPath: data.imgPathm,
-            price: data.price, age: data.age, vendorCode: data.vendorCode } })
+        dispatch(showSpinner(false))
+        dispatch(showAlert(response));
       })
-      .then(() => {
-        history.push(`/products/${productId}`)
-      })
-      .catch(error => { throw (error) });
+      .catch(error => {
+        dispatch(showSpinner(false))
+        dispatch(showAlert(error.response));
+      });
   };
 };
 

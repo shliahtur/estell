@@ -11,6 +11,10 @@
     min-width: 175px;
     width: 100%;
     position: relative;
+    transition: 200ms;
+}
+.product-item:hover{
+    transform: scale(1.05)
 }
 
 .product-item_img {

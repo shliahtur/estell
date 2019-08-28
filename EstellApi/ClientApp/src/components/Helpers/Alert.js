@@ -25,7 +25,7 @@ class Alert extends React.Component {
           }
         })
       }
-      if(this.props.alert.status === '200' || this.props.alert.response === undefined){        
+      if(this.props.alert.response.status == '200' || this.props.alert.response === undefined){        
         setTimeout(() => { this.setState({isAlert: false})}, 1000)   // Auto hide if success message
       }
     }
@@ -46,7 +46,7 @@ class Alert extends React.Component {
         {isAlert &&
           <Portal>
             <div className="modalOverlay" onClick={this.closeAlert}>
-              {response.status === '200'?
+              {response.status == '200'?
                 <div className="modalWindow">
                   <div className="modalHeader modal-success-header">
                     <div className="modal-circle">

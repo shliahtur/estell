@@ -52,6 +52,11 @@ class Admin extends Component {
     this.props.deleteProduct(this.state.selectedDeleteProductId)
   }
 
+  submitEdit = () => {
+    this.setState({
+      isOpenEdit: false
+    })  
+  }
 
   handleSearch = (value) => {
     let text = value.target.value
@@ -171,7 +176,7 @@ class Admin extends Component {
               product={this.state.selectedProduct}
               isOpen={this.state.isOpenEdit}
               onCancel={this.handleCancel}
-              onSubmit={this.handleSubmit}
+              onSubmit={this.submitEdit}
               categories={this.props.categories}
             />
           }

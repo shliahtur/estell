@@ -88,6 +88,46 @@ namespace EstellApi.DAL
 
             Save();
         }
+        public async Task EditProduct(ProductViewModel model)
+        {
+            Product editedProduct = new Product()
+            {
+                Id = model.Id,
+                Name = model.Name,
+                Age = model.Age,
+                Price = model.Price,
+                Description = model.Description,
+                CategoryId = model.CategoryId,
+                Vendor = model.Vendor,
+                VendorCode = model.VendorCode,
+            };
+
+            if (model.Images != null)
+            {
+                foreach (var img in model.Images)
+                {
+                    string path = "/ClientApp/public/Products/" + img.FileName;
+
+                    using (var fileStream = new FileStream(_appEnvironment.ContentRootPath + path, FileMode.Create))
+                    {
+                        await img.CopyToAsync(fileStream);
+                    }
+
+                    Image image = new Image()
+                    {
+                        Name = img.FileName,
+                        Path = "/ClientApp/public/Products/" + img.FileName,
+                        Product = editedProduct
+                    };
+                    _context.Entry(image).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+
+                }
+            }
+
+            _context.Entry(editedProduct).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+
+            Save();
+        }
 
         public Task<List<SearchProductModel>> GetLiveSearchProductList(string searchText)
         {
@@ -113,23 +153,7 @@ namespace EstellApi.DAL
 
         }
 
-        public void EditProduct(Product product, IFormFile uploadedPic)
-        {
-            //if (uploadedPic != null)
-            //{
-            //    product.ImgName = uploadedPic.FileName;
-            //    string path = "/ClientApp/public/Products/" + uploadedPic.FileName;
-            //    product.ImgPath = path;
 
-            //    using (var fileStream = new FileStream(_appEnvironment.WebRootPath + path, FileMode.Create))
-            //    {
-            //        uploadedPic.CopyToAsync(fileStream);
-            //    }
-            //}
-            //_context.Entry(product).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
-
-            Save();
-        }
 
         public void DeleteProduct(int id)
         {

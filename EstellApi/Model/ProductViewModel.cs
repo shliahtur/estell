@@ -8,6 +8,7 @@ namespace EstellApi.Model
 {
     public class ProductViewModel
     {
+        public int Id { get; set; }
         public string Name { get; set; }
         public int Price { get; set; }
         public int CategoryId { get; set; }

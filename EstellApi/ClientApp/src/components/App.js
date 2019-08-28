@@ -14,6 +14,7 @@ import Ecommerce from './whereToBuy/Ecommerce';
 import Footer from './Footer';
 import Admin from './admin/Admin';
 import SideBar from './admin/SideBar';
+import Alert from './Helpers/Alert';
 import Rozetka from './admin/Rozetka';
 
 import '../styles/Admin.css'
@@ -33,6 +34,7 @@ const MainLayout = props => (
       <LoadingBar />
       <CallBtn />
       <NavMenu />
+      <Alert />
       {props.children}
     </div>
     <Footer />
@@ -43,6 +45,7 @@ const AdminLayout = props => (
   <Fragment>
     <div className="admin-content">
     <LoadingBar />
+    <Alert />
     <SideBar url={history.location.pathname}/>
     {props.children}
     </div>
